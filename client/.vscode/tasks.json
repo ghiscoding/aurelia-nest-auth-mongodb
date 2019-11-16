@@ -1,0 +1,14 @@
+{
+  "version": "2.0.0",
+  "tasks": [
+    {
+      "label": "Aurelia (client only)",
+      "command": "yarn",
+      "type": "shell",
+      "args": [
+        "start"
+      ],
+      "problemMatcher": []
+    }
+  ]
+}

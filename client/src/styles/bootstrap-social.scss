@@ -1,0 +1,67 @@
+$color-facebook: #3b5998;
+$color-github: #444;
+$color-google: #dd4b39;
+$color-linkedin: #007bb6;
+$color-microsoft: #2672ec;
+$color-twitter: #55acee;
+
+.btn-social {
+  padding-left: 44px !important;
+  text-align: left !important;
+}
+.btn-social.btn-lg {
+  padding-left: 61px !important;
+  text-align: left !important;
+}
+.btn-social.btn-sm i.fa {
+  font-size: 1rem;
+}
+
+.btn-facebook, .btn-facebook:hover {
+    color: #fff;
+    background-color: $color-facebook;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-facebook, 10%);
+    }
+}
+.btn-github, .btn-github:hover {
+    color: #fff;
+    background-color: $color-github;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-github, 10%);
+    }
+}
+.btn-google, .btn-google:hover {
+    color: #fff;
+    background-color: $color-google;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-google, 10%);
+    }
+}
+.btn-linkedin, .btn-linkedin:hover {
+    color: #fff;
+    background-color: $color-linkedin;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-linkedin, 10%);
+    }
+}
+.btn-microsoft, .btn-microsoft:hover {
+    color: #fff;
+    background-color: $color-microsoft;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-microsoft, 10%);
+    }
+}
+.btn-twitter, .btn-twitter:hover {
+    color: #fff;
+    background-color: $color-twitter;
+    border-color: rgba(0,0,0,0.2);
+    &:hover {
+      background-color: darken($color-twitter, 10%);
+    }
+}

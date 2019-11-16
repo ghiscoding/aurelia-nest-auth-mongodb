@@ -1,0 +1,181 @@
+@import "./bootstrap";
+
+$brand-primary:             #3275B3 !default;
+
+label {
+  display: inline-block;
+}
+
+.ms-drop {
+  label {
+    margin-bottom: 5px;
+  }
+}
+.btn-group-xs > .btn, .btn-xs {
+  padding  : 6px 2px;
+  font-size  : .875rem;
+  line-height  : .5;
+  border-radius : .2rem;
+  margin: 0 2px;
+  font-size: 12px;
+}
+
+body {
+  margin: 0;
+}
+form {
+  label {
+    font-weight: bold;
+  }
+  ::placeholder {
+    color: #c0c0c0 !important;
+  }
+}
+.italic {
+  font-style: italic;
+}
+.faded-60 {
+  opacity: 0.6;
+}
+.faded {
+  opacity: 0.2;
+}
+.faded:hover {
+  opacity: 0.5;
+}
+.red {
+  color: red;
+}
+.subtitle {
+  font-size: 19px;
+  font-style: italic;
+  color: grey;
+  margin-bottom: 10px;
+}
+
+.page-host {
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 56px;
+  bottom: 0;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+@media print {
+  .page-host {
+    position: absolute;
+    left: 10px;
+    right: 0;
+    top: 50px;
+    bottom: 0;
+    overflow-y: inherit;
+    overflow-x: inherit;
+  }
+}
+
+section {
+  margin: 0 20px;
+}
+
+a:focus {
+  outline: none;
+}
+
+.bd-navbar .navbar-nav .nav-link.active {
+    font-weight: 500;
+    color: #121314;
+}
+.navbar-right {
+  padding-right: 15px
+}
+.navbar-nav li.loader {
+    margin: 12px 24px 0 6px;
+}
+
+.no-selection {
+  margin: 20px;
+}
+
+.btn {
+  cursor: pointer;
+}
+.btn-group-vertical.padded {
+  padding-top: 10px;
+}
+
+.contact-list {
+  overflow-y: auto;
+  border: 1px solid #ddd;
+  padding: 10px;
+}
+
+.input-group-text.no-color {
+  background-color: #FFFFFF;
+  font-weight: bold;
+}
+
+.signup-or-separator span {
+  padding: 5px;
+}
+.signup-or-separator span:nth-child(1) {
+  margin-left:5px;
+}
+.signup-or-separator .text {
+  top: 5px;
+  font-weight: 500;
+}
+.panel {
+  margin: 20px;
+}
+
+.button-bar {
+  right: 0;
+  left: 0;
+  bottom: 0;
+  border-top: 1px solid #ddd;
+  background: white;
+}
+
+.button-bar > button {
+  float: right;
+  margin: 20px;
+}
+
+li.list-group-item {
+  list-style: none;
+}
+
+li.list-group-item > a {
+  text-decoration: none;
+}
+
+li.list-group-item.active > a {
+  color: white;
+}
+
+.pointer {
+  cursor: pointer;
+}
+
+/* nprogress color change with brand-primary */
+$nprogress-color:   lighten($brand-primary, 30%);
+
+/* Make clicks pass-through */
+#nprogress .bar {
+  background: $nprogress-color;
+  height: 5px;
+}
+
+/* Fancy blur effect */
+#nprogress .peg {
+  box-shadow: 0 0 10px $nprogress-color, 0 0 5px $nprogress-color;
+}
+
+#nprogress .spinner-icon {
+  width: 24px;
+  height: 24px;
+  border-top-color: $nprogress-color;
+  border-left-color: $nprogress-color;
+}

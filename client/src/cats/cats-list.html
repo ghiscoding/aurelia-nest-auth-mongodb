@@ -1,0 +1,21 @@
+<template>
+  <div class="container">
+    <h2>Cats List</h2>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Breed</th>
+          <th>Age</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr repeat.for="cat of cats">
+          <td>${cat.name}</td>
+          <td>${cat.breed}</td>
+          <td>${cat.age}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</template>

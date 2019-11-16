@@ -1,0 +1,114 @@
+<template>
+  <section class="au-animate">
+    <div class="row">
+      <div class="col-md-6">
+        <div class="card">
+          <h3 class="card-header">Profile</h3>
+          <div class="card-body">
+            <legend><i class="small fa fa-address-card-o"></i> Edit My Profile</legend>
+            <form method="post" ng-submit="updateProfile()">
+              <div class="form-group">
+                <br />
+                <label class="control-label">Profile Picture</label>
+                <p>
+                  <img class="profile-picture img-thumbnail" src.bind="profile.picture || 'http://placehold.it/200x200'"
+                    width="200" height="200">
+                </p>
+              </div>
+              <div class="form-group">
+                <label class="control-label"><i class="fa fa-user"></i> Display Name</label>
+                <input type="text" class="form-control" value.bind="profile.displayName" />
+              </div>
+              <div class="form-group">
+                <label class="control-label"><i class="fa fa-at"></i> Email Address</label>
+                <input type="email" class="form-control" value.bind="profile.email" />
+              </div>
+              <button class="btn btn-success" disabled="">Update Information</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-6">
+        <div class="card">
+          <h3 class="card-header">Accounts</h3>
+          <div class="card-body">
+            <legend><i class="fa fa-link small"></i> Linked Profile Accounts <small>(one or more)</small></legend>
+
+            <div class="col-lg-8 col-md-12 social-buttons">
+              <button class="btn btn-sm btn-facebook btn-social btn-block" if.bind="profile.facebook"
+                click.delegate="unlink('facebook')">
+                <i class="fa fa-facebook"></i> Unlink Facebook Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.facebook"
+                click.delegate="link('facebook')">
+                <i class="fa fa-facebook"></i> Link Facebook Account
+              </button>
+
+              <button class="btn btn-sm btn-google btn-social btn-block" if.bind="profile.google"
+                click.delegate="unlink('google')">
+                <i class="fa fa-google"></i> Unlink Google Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.google"
+                click.delegate="link('google')">
+                <i class="fa fa-google"></i> Link Google Account
+              </button>
+
+              <button class="btn btn-sm btn-github btn-social btn-block" if.bind="profile.github"
+                click.delegate="unlink('github')">
+                <i class="fa fa-github"></i> Unlink GitHub Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.github"
+                click.delegate="link('github')">
+                <i class="fa fa-github"></i> Link GitHub Account
+              </button>
+
+              <button class="btn btn-sm btn-linkedin btn-social btn-block" if.bind="profile.linkedin"
+                click.delegate="unlink('linkedin')">
+                <i class="fa fa-linkedin"></i> Unlink LinkedIn Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.linkedin"
+                click.delegate="link('linkedin')">
+                <i class="fa fa-linkedin"></i> Link LinkedIn Account
+              </button>
+
+              <button class="btn btn-sm btn-twitter btn-social btn-block" if.bind="profile.twitter"
+                click.delegate="unlink('twitter')">
+                <i class="fa fa-twitter"></i> Unlink Twitter Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.twitter"
+                click.delegate="link('twitter')">
+                <i class="fa fa-twitter"></i> Link Twitter Account
+              </button>
+
+              <button class="btn btn-sm btn-microsoft btn-social btn-block" if.bind="profile.windowslive"
+                click.delegate="unlink('windowslive')">
+                <i class="fa fa-windows"></i> Unlink Windows Windows Live Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-block" if.bind="!profile.windowslive"
+                click.delegate="link('windowslive')">
+                <i class="fa fa-windows"></i> Link Windows Windows Live Account
+              </button>
+
+              <!-- <button class="btn btn-sm btn-primary btn-social btn-foursquare" if.bind="profile.foursquare" click.delegate="unlink('foursquare')">
+                <i class="fa fa-foursquare"></i> Unlink Foursquare Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-foursquare" if.bind="!profile.foursquare" click.delegate="link('foursquare')">
+                <i class="fa fa-foursquare"></i> Link Foursquare Account
+              </button>
+
+              <button class="btn btn-sm btn-primary btn-social btn-yahoo" if.bind="profile.yahoo" click.delegate="unlink('yahoo')">
+                <i class="fa fa-yahoo"></i> Unlink Yahoo Account
+              </button>
+              <button class="btn btn-sm btn-secondary faded-60 btn-social btn-yahoo" if.bind="!profile.yahoo" click.delegate="link('yahoo')">
+                <i class="fa fa-yahoo"></i> Link Yahoo Account
+              </button>
+              -->
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</template>

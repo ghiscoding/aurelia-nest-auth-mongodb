@@ -1,0 +1,29 @@
+<template>
+  <div class="offset-md-3 card col-md-5">
+    <h2 class="card-title">${heading}</h2>
+    <div class="card-body">
+      <form role="form" submit.delegate="signup()">
+        <div class="form-group">
+          <label for="fn">Display Name</label>
+          <input type="text" value.bind="displayName & validate" class="form-control" id="displayName"
+            placeholder="Display Name">
+        </div>
+        <div class="form-group">
+          <label for="fn">Email</label>
+          <input type="text" value.bind="email & validate" class="form-control" id="email" placeholder="Email">
+        </div>
+        <div class="form-group">
+          <label for="ln">Password</label>
+          <input type="password" value.bind="password & validate" class="form-control" id="password"
+            placeholder="Password">
+        </div>
+        <div class="form-group">
+          <label class="control-label" for="confirmPassword">Confirm Password</label>
+          <input type="password" class="form-control" id="confirmPassword" placeholder="Confirm Password"
+            value.bind="confirmPassword & validate">
+        </div>
+        <button type="submit" class="btn btn-primary">Signup</button>
+      </form>
+    </div>
+  </div>
+</template>

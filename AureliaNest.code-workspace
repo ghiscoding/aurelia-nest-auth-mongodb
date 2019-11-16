@@ -1,0 +1,13 @@
+{
+	"folders": [
+		{
+			"path": "server"
+		},
+		{
+			"path": "client"
+		}
+	],
+	"settings": {
+		"typescript.tsdk": "server\\node_modules\\typescript\\lib"
+	}
+}

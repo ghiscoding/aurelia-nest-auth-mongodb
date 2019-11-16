@@ -1,0 +1,29 @@
+<template>
+
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-lg" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalCenterTitle">Modal title</h5>
+          <button type="button" class="close" aria-label="Close" click.delegate="dismiss()">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+
+        <div class="modal-body">
+          <compose view-model.bind="viewModel" view-model.ref="customVM" model.bind="model"></compose>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal" click.delegate="dismiss()">Close</button>
+          <button type="button" class="btn btn-primary" click.delegate="saveChanges()">Save changes</button>
+          <div repeat.for="button of buttonList">
+              <button if.bind="button.isDismissable" type="button" class.bind="button.class" data-dismiss="modal" click.delegate="dismiss()">${button.label}</button>
+              <button if.bind="!button.isDismissable" type="button" class.bind="button.class" click.delegate="buttonMethod(button.callback)">${button.label}</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</template>
