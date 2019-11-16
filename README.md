@@ -59,6 +59,17 @@ To run the app execute the following command:
 npm start # or: yarn start
 ```
 
+### GraphQL
+After installing and starting the server you should be able to see your GraphQL playground on http://localhost:3000/graphql.
+You can see if it works by typing the following in the query window 
+```ts
+{
+  hello 
+}
+```
+Also note that most of the GraphQL query are protected and cannot be run directly in the GraphQL playground unless you use the JWT token.
+
+
 ### TODO
 - [x] Exclude authConfig(s) from Git
 - [x] Refine Auth Configuration for both Backend/Frontend
