@@ -16,20 +16,6 @@ The simplest way of running the App is by typing the command (note: this will on
 ```bash
 npm start # or: yarn start
 ```
-What if you want to run both WebUI (Aurelia), WebAPI (`nodeJS` server) and even start the browser with 1 command?
-Easy, just use the following command (make sure to follow the [Server installation](#backend-server-installation-nodejs) prior to launching this command). :
-```bash
-npm start -- withBackend # or: yarn start -- withBackend
-```
-**Note:** a final note when using the `withBackend`, it will use `nodemon` with 2 flags `--watch` and `--inspect`. If you do not want to start with any flags, you may use `withBackend.noflag`
-
-### Backend Server installation (NestJS)
-To install and start the backend server (NestJS), go into the server folder and run `npm start` (make sure you ran the `npm install` first)
-```bash
-cd aurelia-nest-auth-mongodb/server
-npm install # or: yarn install
-npm start # or: yarn start
-```
 
 ### Web UI
 If everything goes well, your application should now run locally on port `9000`. So, in your browser just go to the URL [http://localhost:9000](http://localhost:9000).
