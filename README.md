@@ -1,5 +1,7 @@
-# aurelia-nest-auth-mongodb
+# Aurelia / NestJS / MongoDB / GraphQL and OAuth
 Full stack boilerplate with Aurelia, NestJS, GraphQL, MongoDB and OAuth login.
+
+## Client TypeScript Webpack
 
 ### Client installation
 Start by cloning the repo and then install it (with `npm` or [yarn](https://yarnpkg.com/))
@@ -9,7 +11,7 @@ npm install # or: yarn install
 ```
 
 ### VScode Workspaces
-If you use VSCode (Visual Studio Code) as your main editor, you can load the vscode workspace (requires version `1.16+`, `File -> Open Workspaces`). Once the workspace is loaded, you will then have access to multiple tasks (defined in `client-ts-wp/tasks.json`) which makes it easy to execute the code without even typing any command in the shell (you still have to make sure to `npm install` in both `client-ts-wp` and `server` folder).
+If you use VSCode (Visual Studio Code) as your main editor, you can load the VSCode workspace. Once the workspace is loaded, you will then have access to multiple tasks (defined in `client/tasks.json`) which makes it easy to execute the code without even typing any command in the shell (you still have to make sure to `npm install` in both `client` and `server` folders).
 
 
 ### Running the App
@@ -35,18 +37,8 @@ npm start # or: yarn start
 ### Web UI
 If everything goes well, your application should now run locally on port `9000`. So, in your browser just go to the URL [http://localhost:9000](http://localhost:9000).
 
-## Configuration
-
-### Default Ports
-Default ports for this application are `9000` for the WebUI and `5000` for the WebAPI (server) calls. You can change the ports by editing the file [/client-ts-wp/config.js](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/client-ts-wp/config.js), the `webpack.config.js` and `package-scripts.js` were modifed to use the `config.js` configured ports.
-
 ## License
 MIT
-
-## NOTE
-This TODO Realtime App was based on the official `aurelia-skeleton-webpack`, you can run any of the regular commands that were provided with the skeleton. See below for the official [aurelia-skeleton-webpack - README](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-typescript-webpack).
-
-# aurelia-skeleton-webpack
 
 ## Getting started
 
@@ -66,3 +58,34 @@ To run the app execute the following command:
 ```shell
 npm start # or: yarn start
 ```
+
+### TODO
+- [x] Exclude authConfig(s) from Git
+- [x] Refine Auth Configuration for both Backend/Frontend
+- [x] Update to latest Aurelia/CLI
+- [x] Save user to MongoDB
+- [x] User Login
+	- [x] Use JWT with Passport and bcrypt for the password encryption while saving in DB
+	- [x] Validate username/password in UI
+	- [x] Add form validation
+	- [ ] Add possibility to update Password in User Profile when using username/password
+- [x] User Signup Frontend
+	- [x] Encrypt password instead of plain text when sending it over the line
+	- [x] Redirect to Profile after doing a sign up
+	- [x] Add form validation
+	- [x] Display warning when trying to signup duplicate email
+- [ ] CRUD on User Profile ("Me" controller)
+- [ ] Link/Unlink multiple accounts to a single account
+	- [ ] Link a user to a local user (username/password) with its email 
+- [x] GraphQL add the "whoAmI" (me) resolver 
+- [ ] Aurelia Auth separated into its own plugin
+  - [ ] JWT Storage vs Cookie
+- [ ] Windows Live picture must be pulled from Microsoft Graph API
+- [x] Add Cats list in frontend under an authorized endpoint
+- [ ] Add User Roles (Admin/Regular User)
+- [ ] Show User list only to Admin users
+- [ ] Show Cats list to everyone
+  - [ ] Create new Cat from UI (owner's will be current authenticated user)
+- [x] Protect MongoDB with username/password
+- [x] Add Node/Chrome Debugger
+- [x] Add Swagger with Bearer

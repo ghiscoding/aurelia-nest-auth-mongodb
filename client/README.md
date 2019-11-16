@@ -8,7 +8,7 @@ npm install # or: yarn install
 ```
 
 ### VScode Workspaces
-If you use VSCode (Visual Studio Code) as your main editor, you can load the vscode workspace (requires version `1.16+`, `File -> Open Workspaces`). Once the workspace is loaded, you will then have access to multiple tasks (defined in `client-ts-wp/tasks.json`) which makes it easy to execute the code without even typing any command in the shell (you still have to make sure to `npm install` in both `client-ts-wp` and `server` folder).
+If you use VSCode (Visual Studio Code) as your main editor, you can load the VSCode workspace. Once the workspace is loaded, you will then have access to multiple tasks (defined in `client/tasks.json`) which makes it easy to execute the code without even typing any command in the shell (you still have to make sure to `npm install` in both `client` and `server` folders).
 
 
 ### Running the App
@@ -34,18 +34,8 @@ npm start # or: yarn start
 ### Web UI
 If everything goes well, your application should now run locally on port `9000`. So, in your browser just go to the URL [http://localhost:9000](http://localhost:9000).
 
-## Configuration
-
-### Default Ports
-Default ports for this application are `9000` for the WebUI and `5000` for the WebAPI (server) calls. You can change the ports by editing the file [/client-ts-wp/config.js](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/client-ts-wp/config.js), the `webpack.config.js` and `package-scripts.js` were modifed to use the `config.js` configured ports.
-
 ## License
 MIT
-
-## NOTE
-This TODO Realtime App was based on the official `aurelia-skeleton-webpack`, you can run any of the regular commands that were provided with the skeleton. See below for the official [aurelia-skeleton-webpack - README](https://github.com/aurelia/skeleton-navigation/tree/master/skeleton-typescript-webpack).
-
-# aurelia-skeleton-webpack
 
 ## Getting started
 
