@@ -32,7 +32,7 @@ npm start # or: yarn start
 
 ### OAuth
 For the OAuth to work, we use Passport and you will need to rename a file and configure your keys to get going. Here are the steps
-1. rename `server/src/auth/auth-config.development.template.ts` to `server/src/auth/auth-config.development.ts`
+1. rename [server/src/auth/auth-config.development.template.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/auth/auth-config.development.template.ts) to `server/src/auth/auth-config.development.ts`
 2. open the file and change all necessary `clientID` and `clientSecret` properties then save the file.
 3. run the project
 
