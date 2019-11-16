@@ -89,16 +89,19 @@ Also note that most of the GraphQL query are protected and cannot be run directl
 	- [x] Display warning when trying to signup duplicate email
 - [ ] CRUD on User Profile ("Me" controller)
 - [ ] Link/Unlink multiple accounts to a single account
+    - [x] Ability to add multiple accounts to an OAuth account
+    - [ ] Cleanup NestJS code to do it in 1 action instead of currently 2.
 	- [ ] Link a user to a local user (username/password) with its email 
 - [x] GraphQL add the "whoAmI" (me) resolver 
 - [ ] Aurelia Auth separated into its own plugin
-  - [ ] JWT Storage vs Cookie
+  - [x] JWT Storage
+  - [ ] Create new plugin repo 
 - [ ] Windows Live picture must be pulled from Microsoft Graph API
 - [x] Add Cats list in frontend under an authorized endpoint
 - [ ] Add User Roles (Admin/Regular User)
 - [ ] Show User list only to Admin users
-- [ ] Show Cats list to everyone
-  - [ ] Create new Cat from UI (owner's will be current authenticated user)
+- [ ] Show Cats list to everyone in UI and GraphQL
+  - [ ] Create new Cat from UI (cat's owner should be current authenticated user)
 - [x] Protect MongoDB with username/password
 - [x] Add Node/Chrome Debugger
 - [x] Add Swagger with Bearer
