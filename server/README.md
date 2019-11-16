@@ -9,6 +9,14 @@ npm install # or: yarn install
 npm start # or: yarn start
 ```
 
+### Running the App
+The simplest way of running the App is to use the VSCode tasks there were created **Aurelia (client)** and **NestJS Dev (server)** (or _NestJS Debug (server)_ if you wish to debug your code with NestJS)
+
+The second way would be to type the shell command `yarn start` in both `client` and `server` folders.
+```bash
+npm start # or: yarn start
+```
+
 ### OAuth
 For the OAuth to work, we use Passport and you will need to rename a file and configure your keys to get going. Here are the steps
 1. rename `server/src/auth/auth-config.development.template.ts` to `server/src/auth/auth-config.development.ts`

@@ -15,16 +15,12 @@ If you use VSCode (Visual Studio Code) as your main editor, you can load the VSC
 
 
 ### Running the App
-The simplest way of running the App is by typing the command (note: this will only start the WebUI)
+The simplest way of running the App is to use the VSCode tasks there were created **Aurelia (client)** and **NestJS Dev (server)** (or _NestJS Debug (server)_ if you wish to debug your code with NestJS)
+
+The second way would be to type the shell command `yarn start` in both `client` and `server` folders.
 ```bash
 npm start # or: yarn start
 ```
-What if you want to run both WebUI (Aurelia), WebAPI (`nodeJS` server) and even start the browser with 1 command?
-Easy, just use the following command (make sure to follow the [Server installation](#backend-server-installation-nodejs) prior to launching this command). :
-```bash
-npm start -- withBackend # or: yarn start -- withBackend
-```
-**Note:** a final note when using the `withBackend`, it will use `nodemon` with 2 flags `--watch` and `--inspect`. If you do not want to start with any flags, you may use `withBackend.noflag`
 
 ### Backend Server installation (NestJS)
 To install and start the backend server (NestJS), go into the server folder and run `npm start` (make sure you ran the `npm install` first)

@@ -10,9 +10,10 @@ npm install # or: yarn install
 ### VScode Workspaces
 If you use VSCode (Visual Studio Code) as your main editor, you can load the VSCode workspace. Once the workspace is loaded, you will then have access to multiple tasks (defined in `client/tasks.json`) which makes it easy to execute the code without even typing any command in the shell (you still have to make sure to `npm install` in both `client` and `server` folders).
 
-
 ### Running the App
-The simplest way of running the App is by typing the command (note: this will only start the WebUI)
+The simplest way of running the App is to use the VSCode tasks there were created **Aurelia (client)** and **NestJS Dev (server)** (or _NestJS Debug (server)_ if you wish to debug your code with NestJS)
+
+The second way would be to type the shell command `yarn start` in both `client` and `server` folders.
 ```bash
 npm start # or: yarn start
 ```
