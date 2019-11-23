@@ -30,6 +30,11 @@ npm install # or: yarn install
 npm start # or: yarn start
 ```
 
+### MongoDB Database
+We use MongoDB for the backend database, by default it is configured to use credentials with username/password. You can find the MongoDB connection string with the credentials in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file. 
+
+If you wish to connect to the MongoDB without credentials, just go in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file and remove the credentials, the end result should be. `MongooseModule.forRoot('mongodb://localhost/nest' {...`
+
 ### OAuth
 For the OAuth to work, we use Passport and you will need to rename a file and configure your keys to get going. Here are the steps
 1. rename [server/src/auth/auth-config.development.template.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/auth/auth-config.development.template.ts) to `server/src/auth/auth-config.development.ts`
