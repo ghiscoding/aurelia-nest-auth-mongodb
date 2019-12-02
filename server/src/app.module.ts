@@ -19,7 +19,7 @@ import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
       autoSchemaFile: 'schema.gql',
       context: ({ req }) => ({ req }),
     }),
-    MongooseModule.forRoot('mongodb://appuser:SimpleAs123@localhost/nest', {
+    MongooseModule.forRoot('mongodb://localhost/nest', {
       useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,

@@ -23,7 +23,12 @@ npm start # or: yarn start
 ```
 
 ### Backend Server installation (NestJS)
-To install and start the backend server (NestJS), go into the server folder and run `npm start` (make sure you ran the `npm install` first)
+The first thing you will need is to install NestJS CLI
+```bash
+npm install -g @nestjs/cli
+```
+
+Then install and start the backend server code (NestJS), go into the server folder and run `npm start` (make sure you ran the `npm install` first).
 ```bash
 cd aurelia-nest-auth-mongodb/server
 npm install # or: yarn install
@@ -31,9 +36,7 @@ npm start # or: yarn start
 ```
 
 ### MongoDB Database
-We use MongoDB for the backend database, by default it is configured to use credentials with username/password. You can find the MongoDB connection string with the credentials in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file. 
-
-If you wish to connect to the MongoDB without credentials, just go in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file and remove the credentials, the end result should be. `MongooseModule.forRoot('mongodb://localhost/nest' {...`
+We use MongoDB for the backend database, the default database that will be used is named `nest`, you will need to manually add it (there's currently no seeding/migration in the project). Also it is configured to be used without credentials but, you might want to change that in the future to be more secure. You can find the MongoDB connection string with the credentials in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file.
 
 ### OAuth
 For the OAuth to work, we use Passport and you will need to rename a file and configure your keys to get going. Here are the steps
@@ -68,10 +71,10 @@ npm start # or: yarn start
 
 ### GraphQL
 After installing and starting the server you should be able to see your GraphQL playground on http://localhost:3000/graphql.
-You can see if it works by typing the following in the query window 
+You can see if it works by typing the following in the query window
 ```ts
 {
-  hello 
+  hello
 }
 ```
 Also note that most of the GraphQL query are protected and cannot be run directly in the GraphQL playground unless you use the JWT token.
@@ -96,11 +99,11 @@ Also note that most of the GraphQL query are protected and cannot be run directl
 - [ ] Link/Unlink multiple accounts to a single account
     - [x] Ability to add multiple accounts to an OAuth account
     - [ ] Cleanup NestJS code to do it in 1 action instead of currently 2.
-	- [ ] Link a user to a local user (username/password) with its email 
-- [x] GraphQL add the "whoAmI" (me) resolver 
+	- [ ] Link a user to a local user (username/password) with its email
+- [x] GraphQL add the "whoAmI" (me) resolver
 - [ ] Aurelia Auth separated into its own plugin
   - [x] JWT Storage
-  - [ ] Create new plugin repo 
+  - [ ] Create new plugin repo
 - [ ] Windows Live picture must be pulled from Microsoft Graph API
 - [x] Add Cats list in frontend under an authorized endpoint
 - [ ] Add User Roles (Admin/Regular User)

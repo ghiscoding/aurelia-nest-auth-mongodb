@@ -35,3 +35,10 @@ lerna-debug.log*
 
 # remove auth config with personal keys
 auth-config.development.ts
+
+## Remove NPM/Yarn logs and lock files
+npm-debug.log
+package-lock.json
+yarn.lock
+yarn-error.log
+
