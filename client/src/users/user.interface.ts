@@ -5,6 +5,7 @@ export interface User {
   readonly picture: string;
   readonly provider: string;
   readonly providers: [{ id: string; name: string; }];
+  readonly roles?: string[];
   readonly facebook?: string;
   readonly github?: string;
   readonly google?: string;

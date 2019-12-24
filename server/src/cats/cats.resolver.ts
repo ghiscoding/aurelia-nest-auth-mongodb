@@ -4,6 +4,7 @@ import { CreateCatDto } from './dto/create-cat.dto';
 import { CatInput } from './inputs/cat-input';
 import { UseGuards } from '@nestjs/common';
 import { GraphqlPassportAuthGuard } from '../shared/guards/graphql-passport-auth.guard';
+import { Roles } from '../shared/decorators/roles.decorator';
 
 export interface User {
   id: string;
@@ -28,6 +29,8 @@ export class CatsResolver {
     return this.catsService.findAll();
   }
 
+  @Roles('user')
+  @UseGuards(new GraphqlPassportAuthGuard('USER'))
   @Mutation(() => CreateCatDto)
   @UseGuards(GraphqlPassportAuthGuard)
   async createCat(@Args('input') input: CatInput) {

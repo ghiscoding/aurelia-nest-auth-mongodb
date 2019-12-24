@@ -1,8 +1,10 @@
 import { ObjectType, Field, ID } from 'type-graphql';
 import { ProviderDto } from './provider.dto';
+import { ApiProperty } from '@nestjs/swagger';
 
 @ObjectType()
 export class UserDto {
+  @ApiProperty({ description: 'user ID' })
   @Field(() => ID)
   readonly userId: string;
 
@@ -20,6 +22,9 @@ export class UserDto {
 
   @Field(type => [ProviderDto], { nullable: true })
   readonly providers: ProviderDto[];
+
+  @Field(type => [String])
+  readonly roles: string[];
 
   @Field({ nullable: true })
   readonly facebook?: string;

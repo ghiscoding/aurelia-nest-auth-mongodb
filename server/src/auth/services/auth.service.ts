@@ -29,12 +29,12 @@ export class AuthService {
       const payload = { ...userProfile, provider, providers: [{ providerId: userProfile.userId, name: provider }] };
 
       // find user in MongoDB and if not found then create it in the DB
-      const existingUser = await this.userService.findOne({ [provider]: userProfile.userId });
+      let existingUser = await this.userService.findOne({ [provider]: userProfile.userId });
       if (!existingUser) {
-        console.log('saving::', payload)
-        await this.userService.create(payload);
+        existingUser = await this.userService.create(payload);
       }
 
+      payload.roles = existingUser && existingUser.roles || [];
       const jwt: string = sign(payload, this.JWT_SECRET_KEY, { expiresIn: 3600 });
       return jwt;
     } catch (err) {

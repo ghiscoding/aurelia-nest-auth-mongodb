@@ -40,6 +40,7 @@ type UserDto {
   picture: String
   provider: String
   providers: [ProviderDto!]
+  roles: [String!]!
   facebook: String
   github: String
   google: String

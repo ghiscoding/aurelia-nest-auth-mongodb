@@ -7,14 +7,15 @@ export const ProviderSchema = new mongoose.Schema({
 
 export const UserSchema = new mongoose.Schema({
   _id: { type: mongoose.ObjectId },
-  userId: String,
+  userId: { type: String, unique: true },
   password: String,
-  email: { type: String, lowercase: true, unique: true },
+  email: { type: String, lowercase: true },
   createdOn: { type: Date, default: Date.now },
   updatedOn: { type: Date, default: Date.now },
   displayName: String,
   provider: String,
   providers: [ProviderSchema],
+  roles: [String],
   picture: String,
   facebook: String,
   foursquare: String,

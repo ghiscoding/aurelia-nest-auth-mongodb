@@ -69,9 +69,13 @@ To run the app execute the following command:
 npm start # or: yarn start
 ```
 
+### User Roles
+Each user can have 1 or more Role, each of them will automatically get the USER Role after being created/saved in the DB. On any user, you could also add the ADMIN Role. The very first user created in the DB will automically get the ADMIN & USER roles, for any other you could use MongoDB Compass to change their role(s) in the DB. The ADMIN Role is the only role that is allowed to see the Users List, a regular USER won't get any result in GraphQL (a 403 error will actually be thrown in GraphQL by the Guard).
+
 ### GraphQL
+###### packages: graphql, apollo-server-express & @nestjs/graphql
 After installing and starting the server you should be able to see your GraphQL playground on http://localhost:3000/graphql.
-You can see if it works by typing the following in the query window
+You can see if it works by typing the following in the query window and click on the "Play" button in the middle of the screen.
 ```ts
 {
   hello
@@ -79,6 +83,23 @@ You can see if it works by typing the following in the query window
 ```
 Also note that most of the GraphQL query are protected and cannot be run directly in the GraphQL playground unless you use the JWT token.
 
+#### Protected GraphQL Queries/Mutations
+Some of the GraphQL queries are protected by a NestJS Guard (`GraphqlPassportAuthGuard`) and requires you to be authenticated (and some also requires to have the Admin role) and you might be wondering how to query them? Simple, in GraphQL Playground we can pass an `Http Header` (bottom of the page) with the `Autorization` header that will contain our JWT token (which you can get from Chrome network)... and boom! We can start querying as if we were (are) authenticated, sweet!
+```json
+# Http Header
+{
+  "Authorization": "Bearer PASTE YOUR TOKEN HERE"
+}
+```
+
+##### Example of some protected GraphQL
+- Cats List (must be authenticated)
+- Create a Cat (must be authenticated)
+- Users List (must be authenticated & have ADMIN role)
+
+### Swagger
+###### packages: @nestjs/swagger
+For any REST APIs, using a tool like Swagger is very helpful, it's already implemented in this project, all you have to do is head over to http://localhost:3000/api/ and see the Swagger API docs. You will also notice that only the Auth API is in the list (any GraphQL related APIs are outside of Swagger). Just as with GraphQL, some of these APIs are protected by the JWT token, you can add your token by clicking on the "Authorize" button on the top right.
 
 ### TODO
 - [x] Exclude authConfig(s) from Git
@@ -106,9 +127,11 @@ Also note that most of the GraphQL query are protected and cannot be run directl
   - [ ] Create new plugin repo
 - [ ] Windows Live picture must be pulled from Microsoft Graph API
 - [x] Add Cats list in frontend under an authorized endpoint
-- [ ] Add User Roles (Admin/Regular User)
+- [x] Add User Roles (Admin/User)
 - [ ] Show User list only to Admin users
-- [ ] Show Cats list to everyone in UI and GraphQL
+  - [x] Add GraphQL Nest Guard to show list only to ADMINs
+  - [ ] UI to only show menu when user has Admin role
+- [ ] Show Cats list to everyone authenticated in UI and GraphQL (with JWT)
   - [ ] Create new Cat from UI (cat's owner should be current authenticated user)
 - [x] Protect MongoDB with username/password
 - [x] Add Node/Chrome Debugger

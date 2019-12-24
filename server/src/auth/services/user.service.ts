@@ -13,11 +13,19 @@ export class UserService {
   ) { }
 
   async create(newUser: User): Promise<User> {
-    // const createdUser = new this.userModel(newUser);
     const objectId = Types.ObjectId();
+    const roles = ['USER'];
+    const userCount = await this.count();
+    if (userCount === 0) {
+      roles.push('ADMIN'); // the very first user will automatically get the ADMIN role
+    }
     const userId = newUser.userId || objectId.toString(); // copy over the same _id when userId isn't provided (by local signup users)
-    const createdUser = new this.userModel({ ...newUser, _id: objectId, userId });
+    const createdUser = new this.userModel({ ...newUser, roles, _id: objectId, userId });
     return await createdUser.save();
+  }
+
+  async count(): Promise<number> {
+    return await this.userModel.count().exec();
   }
 
   async findAll(): Promise<User[]> {

@@ -9,6 +9,7 @@ export interface User extends Document {
   readonly picture?: string;
   readonly provider?: string;
   readonly providers?: Provider[];
+  readonly roles: string[];
   readonly username?: string;
   readonly password?: string;
   readonly facebook?: string;
