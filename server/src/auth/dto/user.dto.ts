@@ -12,7 +12,7 @@ export class UserDto {
   readonly password?: string;
 
   @IsString()
-  @ApiProperty({ description: 'User\s Display Name to use in the UI' })
+  @ApiProperty({ description: 'User\'s Display Name to use in the UI' })
   readonly displayName: string;
 
   readonly id?: string;

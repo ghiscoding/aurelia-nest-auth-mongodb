@@ -5,7 +5,7 @@ import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 import authConfig from './auth-config.development';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
-import { TokenDto, UserDto, UsernameDto } from './dto';
+import { TokenDto, UsernameDto, UserSignupDto } from './dto';
 
 @ApiTags('Authorization API')
 @ApiBearerAuth()
@@ -150,7 +150,7 @@ export class AuthController {
 
   @ApiOperation({ summary: 'Signup a new User' })
   @Post('signup')
-  async signup(@Body() signupUser: UserDto) {
+  async signup(@Body() signupUser: UserSignupDto) {
     return await this.authService.signup(signupUser);
   }
 

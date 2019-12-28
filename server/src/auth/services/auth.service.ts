@@ -6,6 +6,7 @@ import { sign } from 'jsonwebtoken';
 import authConfig from '../auth-config.development';
 import { UserService } from './user.service';
 import { User } from '../models';
+import { UserSignupDto } from '../dto';
 
 export enum Provider {
   FACEBOOK = 'facebook',
@@ -55,7 +56,7 @@ export class AuthService {
     return { token: this.jwtService.sign({ email, displayName, userId }) };
   }
 
-  async signup(signupUser: User): Promise<{ token: string }> {
+  async signup(signupUser: UserSignupDto): Promise<{ token: string }> {
     const password = await bcrypt.hash(signupUser.password, 10);
     const createdUser = await this.userService.create({ ...signupUser, password });
     const { email, displayName, userId } = createdUser;

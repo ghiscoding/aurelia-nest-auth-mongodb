@@ -25,7 +25,7 @@ export class UserService {
   }
 
   async count(): Promise<number> {
-    return await this.userModel.count().exec();
+    return await this.userModel.countDocuments().exec();
   }
 
   async findAll(): Promise<User[]> {
