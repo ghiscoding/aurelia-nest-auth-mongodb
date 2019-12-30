@@ -1,10 +1,11 @@
 import { Query, Resolver } from '@nestjs/graphql';
-import { createParamDecorator, UseGuards, SetMetadata, Req } from '@nestjs/common';
+import { UseGuards } from '@nestjs/common';
 
 import { UsersService } from './users.service';
 import { GraphqlPassportAuthGuard } from '../shared/guards';
 import { UserDto } from './dto/user.dto';
 import { Roles } from '../shared/decorators/roles.decorator';
+import { CurrentUser } from '../shared/decorators';
 
 export interface User {
   id: string;
@@ -12,12 +13,6 @@ export interface User {
   email: string;
   roles: string[];
 }
-
-export const CurrentUser = createParamDecorator(
-  (data, [root, args, ctx, info]) => {
-    return ctx.req.user;
-  },
-);
 
 @Resolver()
 export class UsersResolver {
@@ -28,7 +23,7 @@ export class UsersResolver {
   @Query(() => [UserDto])
   @Roles('admin')
   @UseGuards(new GraphqlPassportAuthGuard('ADMIN'))
-  async users(@Req() req) {
+  async users() {
     return this.usersService.findAll();
   }
 

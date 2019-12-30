@@ -3,12 +3,12 @@ import { ApiProperty } from '@nestjs/swagger';
 
 export class UserDto {
   @IsEmail()
-  @ApiProperty({ example: 'someone@company.com', description: 'User\s Email' })
+  @ApiProperty({ example: 'someone@company.com', description: 'User\'s Email' })
   readonly email: { type: string, lowercase: true };
 
   @IsString()
   @MinLength(5)
-  @ApiProperty({ description: 'User\s Password (only applies when using username/password)' })
+  @ApiProperty({ description: 'User\'s Password (only applies when using username/password)' })
   readonly password?: string;
 
   @IsString()
@@ -21,18 +21,18 @@ export class UserDto {
   readonly userId?: string;
 
   @IsOptional()
-  @ApiProperty({ description: 'User\s Profile Picture URL' })
+  @ApiProperty({ description: 'User\'s Profile Picture URL' })
   readonly picture?: string;
 
   @IsOptional()
-  @ApiProperty({ description: 'User\s Original OAuth2 Provider' })
+  @ApiProperty({ description: 'User\'s Original OAuth2 Provider' })
   readonly provider?: string;
 
-  @ApiProperty({ description: 'User\s Role(s)' })
+  @ApiProperty({ description: 'User\'s Role(s)' })
   readonly roles: string[];
 
   @IsOptional()
-  @ApiProperty({ description: 'User\s Username (only applies when using username/password)' })
+  @ApiProperty({ description: 'User\'s Username (only applies when using username/password)' })
   readonly username?: string;
 
   @IsOptional()

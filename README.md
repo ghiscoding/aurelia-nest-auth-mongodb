@@ -136,4 +136,5 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 - [x] Protect MongoDB with username/password
 - [x] Add Node/Chrome Debugger
 - [x] Add Swagger with Bearer
+- [ ] Use [Aurelia-Slickgrid](https://github.com/ghiscoding/aurelia-slickgrid) on client side to show GraphQL lists (cats, users)
 - [ ] Use TypeScript 3.7 and configure Optional Chaining & Nullish Coalescing

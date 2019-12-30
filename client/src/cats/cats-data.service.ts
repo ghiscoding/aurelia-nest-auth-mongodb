@@ -11,7 +11,7 @@ export class CatsDataService {
   getAll<T>(): Promise<T> {
     return this.http.fetch(Globals.baseGraphQlUrl, {
       method: 'post',
-      body: json({ query: `query { cats { id, name, age, breed }}` })
+      body: json({ query: `query { cats { id, name, age, breed, ownerId }}` })
     }).then(response => response.json());
   }
 }
