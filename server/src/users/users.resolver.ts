@@ -3,16 +3,9 @@ import { UseGuards } from '@nestjs/common';
 
 import { UsersService } from './users.service';
 import { GraphqlPassportAuthGuard } from '../shared/guards';
-import { UserDto } from './dto/user.dto';
+import { User } from './graphTypes/user.graphtype';
 import { Roles } from '../shared/decorators/roles.decorator';
 import { CurrentUser } from '../shared/decorators';
-
-export interface User {
-  id: string;
-  displayName: string;
-  email: string;
-  roles: string[];
-}
 
 @Resolver()
 export class UsersResolver {
@@ -20,14 +13,14 @@ export class UsersResolver {
     private readonly usersService: UsersService,
   ) { }
 
-  @Query(() => [UserDto])
+  @Query(() => [User])
   @Roles('admin')
   @UseGuards(new GraphqlPassportAuthGuard('ADMIN'))
   async users() {
     return this.usersService.findAll();
   }
 
-  @Query(() => UserDto)
+  @Query(() => User)
   @UseGuards(GraphqlPassportAuthGuard)
   whoAmI(@CurrentUser() user: User) {
     return user;

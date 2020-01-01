@@ -19,7 +19,7 @@ import { WindowsliveStrategy } from './strategies/windowslive.strategy';
 
 import authConfig from './auth-config.development';
 import { LocalStrategy } from './strategies/local.strategy';
-import { UserSchema } from './schemas';
+import { UserSchema } from '../shared/schemas/user.schema';
 
 @Module({
   imports: [

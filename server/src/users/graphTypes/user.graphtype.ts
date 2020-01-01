@@ -1,9 +1,9 @@
 import { ObjectType, Field, ID } from 'type-graphql';
-import { ProviderDto } from './provider.dto';
+import { Provider } from './provider.graphtype';
 import { ApiProperty } from '@nestjs/swagger';
 
 @ObjectType()
-export class UserDto {
+export class User {
   @ApiProperty({ description: 'user ID' })
   @Field(() => ID)
   readonly userId: string;
@@ -20,8 +20,8 @@ export class UserDto {
   @Field({ nullable: true })
   readonly provider: string;
 
-  @Field(type => [ProviderDto], { nullable: true })
-  readonly providers: ProviderDto[];
+  @Field(type => [Provider], { nullable: true })
+  readonly providers: Provider[];
 
   @Field(type => [String])
   readonly roles: string[];

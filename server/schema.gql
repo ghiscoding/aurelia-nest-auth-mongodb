@@ -3,6 +3,14 @@
 # !!!   DO NOT MODIFY THIS FILE BY YOURSELF   !!!
 # -----------------------------------------------
 
+type Cat {
+  id: ID!
+  name: String!
+  age: Int!
+  breed: String!
+  owner: Owner
+}
+
 input CatInput {
   name: String!
   age: Int!
@@ -10,19 +18,17 @@ input CatInput {
   ownerId: String!
 }
 
-type CreateCatDto {
-  id: ID!
-  name: String!
-  age: Int!
-  breed: String!
-  ownerId: String!
-}
-
 type Mutation {
-  createCat(input: CatInput!): CreateCatDto!
+  createCat(input: CatInput!): Cat!
 }
 
-type ProviderDto {
+type Owner {
+  id: ID!
+  displayName: String!
+  email: String!
+}
+
+type Provider {
   id: ID!
   providerId: String!
   name: String!
@@ -30,18 +36,19 @@ type ProviderDto {
 
 type Query {
   hello: String!
-  cats: [CreateCatDto!]!
-  users: [UserDto!]!
-  whoAmI: UserDto!
+  author(id: Int!): Cat!
+  cats: [Cat!]!
+  users: [User!]!
+  whoAmI: User!
 }
 
-type UserDto {
+type User {
   userId: ID!
   displayName: String!
   email: String!
   picture: String
   provider: String
-  providers: [ProviderDto!]
+  providers: [Provider!]
   roles: [String!]!
   facebook: String
   github: String

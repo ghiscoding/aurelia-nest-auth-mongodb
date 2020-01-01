@@ -1,7 +1,8 @@
 import { ObjectType, Field, Int, ID } from 'type-graphql';
+import { Owner } from './owner.type';
 
 @ObjectType()
-export class CreateCatDto {
+export class Cat {
   @Field(() => ID)
   id: string;
 
@@ -14,6 +15,6 @@ export class CreateCatDto {
   @Field()
   readonly breed: string;
 
-  @Field()
-  readonly ownerId: string;
+  @Field(type => Owner, { nullable: true })
+  readonly owner?: Owner;
 }
