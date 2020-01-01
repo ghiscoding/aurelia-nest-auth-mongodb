@@ -38,6 +38,8 @@ npm start # or: yarn start
 ### MongoDB Database
 We use MongoDB for the backend database, the default database that will be used is named `nest`, you will need to manually add it (there's currently no seeding/migration in the project). Also it is configured to be used without credentials but, you might want to change that in the future to be more secure. You can find the MongoDB connection string with the credentials in the [src/app.module.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/app.module.ts) file.
 
+Also note that we use [Mongoose](https://mongoosejs.com/) as Schema modeling and validation.
+
 ### OAuth
 For the OAuth to work, we use Passport and you will need to rename a file and configure your keys to get going. Here are the steps
 1. rename [server/src/auth/auth-config.development.template.ts](https://github.com/ghiscoding/aurelia-nest-auth-mongodb/blob/master/server/src/auth/auth-config.development.template.ts) to `server/src/auth/auth-config.development.ts`
@@ -74,6 +76,8 @@ Each user can have 1 or more Role, each of them will automatically get the USER 
 
 ### GraphQL
 ###### packages: graphql, apollo-server-express and @nestjs/graphql
+We use GraphQL in a Code First approach (our code will create the GraphQL Schemas).
+
 After installing and starting the server you should be able to see your GraphQL playground on http://localhost:3000/graphql.
 You can see if it works by typing the following in the query window and click on the "Play" button in the middle of the screen.
 ```ts
@@ -128,11 +132,12 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 - [ ] Windows Live picture must be pulled from Microsoft Graph API
 - [x] Add Cats list in frontend under an authorized endpoint
 - [x] Add User Roles (Admin/User)
-- [ ] Show User list only to Admin users
+- [x] Show User list only to Admin users
   - [x] Add GraphQL Nest Guard to show list only to ADMINs
-  - [ ] UI to only show menu when user has Admin role
-- [ ] Show Cats list to everyone authenticated in UI and GraphQL (with JWT)
-  - [ ] Create new Cat from UI (cat's owner should be current authenticated user)
+  - [x] UI to only show menu when user has Admin role
+- [x] Show Cats list to everyone who's authenticated in the UI and GraphQL (with JWT)
+  - [x] Create new Cat from UI (cat's owner should be current authenticated user)
+  - [x] Show Cat's owner in the cats list.
 - [x] Protect MongoDB with username/password
 - [x] Add Node/Chrome Debugger
 - [x] Add Swagger with Bearer
