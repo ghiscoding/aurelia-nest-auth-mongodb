@@ -22,7 +22,7 @@ export default class {
         { route: 'signup', name: 'signup', moduleId: PLATFORM.moduleName('./auth/signup'), nav: false, title: 'Signup' },
         { route: 'contacts', name: 'contacts', moduleId: PLATFORM.moduleName('./contacts/index'), nav: true, title: 'Contacts', auth: true },
         { route: 'cats', name: 'cats', moduleId: PLATFORM.moduleName('./cats/cats-list'), nav: true, title: 'Cats', auth: true },
-        { route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/users-list'), nav: true, title: 'Users', auth: true },
+        { route: 'users', name: 'users', moduleId: PLATFORM.moduleName('./users/users-list'), nav: true, title: 'Users', auth: true, admin: true },
       ]);
     };
 

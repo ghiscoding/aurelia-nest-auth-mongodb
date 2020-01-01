@@ -5,7 +5,8 @@ import { AuthService } from './shared/services/auth.service';
 @autoinject()
 export class NavBar {
   @bindable router: Router;
-  _isAuthenticated: boolean = false;
+  _isAuthenticated = false;
+  isAdmin = false;
   displayName: string = '';
   subscription: { dispose: () => void };
 
@@ -25,8 +26,14 @@ export class NavBar {
   get isAuthenticated(): boolean {
     const isLoggedIn = this.authService.isAuthenticated();
     if (isLoggedIn) {
-      let userProfile = localStorage.getItem('userProfile');
-      this.displayName = (typeof userProfile === 'string') ? JSON.parse(userProfile).displayName : '';
+      let profile = localStorage.getItem('userProfile');
+      const userProfile = (typeof profile === 'string') ? JSON.parse(profile) : {};
+      if (userProfile.roles) {
+        this.isAdmin = userProfile.roles.findIndex((role: string) => role.toUpperCase() === 'ADMIN') >= 0;
+      } else {
+        this.isAdmin = false;
+      }
+      this.displayName = userProfile.displayName;
     }
     return isLoggedIn;
   }

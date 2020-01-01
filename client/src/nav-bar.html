@@ -8,7 +8,7 @@
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav mr-auto">
-        <li repeat.for="row of router.navigation | authFilter: isAuthenticated"
+        <li repeat.for="row of router.navigation | authFilter: isAuthenticated | adminFilter: isAdmin"
           class="nav-item ${row.isActive ? 'active' : ''}">
           <a class="nav-link" href.bind="row.href">${row.title}</a>
         </li>

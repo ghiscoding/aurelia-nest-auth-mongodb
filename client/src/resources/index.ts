@@ -6,6 +6,7 @@ export function configure(config: FrameworkConfiguration) {
     PLATFORM.moduleName('./elements/abp-modal'),
     PLATFORM.moduleName('./elements/bootstrap-tooltip'),
     PLATFORM.moduleName('./elements/loading-indicator'),
+    PLATFORM.moduleName('./value-converters/admin-filter'),
     PLATFORM.moduleName('./value-converters/auth-filter'),
     PLATFORM.moduleName('./value-converters/date-format'),
     PLATFORM.moduleName('./value-converters/number'),
