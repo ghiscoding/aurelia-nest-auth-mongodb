@@ -1,4 +1,4 @@
-import { Field, Int, InputType, ID } from 'type-graphql';
+import { Field, Int, InputType } from 'type-graphql';
 
 @InputType()
 export class CatInput {

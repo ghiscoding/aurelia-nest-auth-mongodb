@@ -11,6 +11,14 @@ type Cat {
   owner: Owner
 }
 
+"""The list of Cat Fields"""
+enum CatFields {
+  id
+  name
+  age
+  breed
+}
+
 input CatInput {
   name: String!
   age: Int!
@@ -18,14 +26,70 @@ input CatInput {
   ownerId: String!
 }
 
+"""The orderBy directions"""
+enum Direction {
+  ASC
+  DESC
+}
+
+input FilterByCatFields {
+  field: CatFields!
+  operator: Operator!
+  value: String!
+}
+
+input FilterByString {
+  field: String!
+  operator: Operator!
+  value: String!
+}
+
 type Mutation {
   createCat(input: CatInput!): Cat!
+}
+
+"""Possible filter operators"""
+enum Operator {
+  LT
+  LE
+  GT
+  GE
+  NE
+  EQ
+  IN
+  NIN
+  StartsWith
+  EndsWith
+  Contains
+}
+
+input OrderByCatFields {
+  field: CatFields!
+  direction: Direction!
+}
+
+input OrderByString {
+  field: String!
+  direction: Direction!
 }
 
 type Owner {
   id: ID!
   displayName: String!
   email: String!
+}
+
+type PageInfo {
+  hasNextPage: Boolean
+  hasPreviousPage: Boolean
+  endCursor: String
+  startCursor: String
+}
+
+type PaginatedResponseClass {
+  nodes: [User!]!
+  totalCount: Int!
+  pageInfo: PageInfo!
 }
 
 type Provider {
@@ -37,12 +101,13 @@ type Provider {
 type Query {
   hello: String!
   author(id: Int!): Cat!
-  cats: [Cat!]!
-  users: [User!]!
+  cats(filterBy: [FilterByCatFields!], orderBy: [OrderByCatFields!]): [Cat!]!
+  users(filterBy: [FilterByString!], orderBy: [OrderByString!], first: Int!, offset: Int!, cursor: String): PaginatedResponseClass!
   whoAmI: User!
 }
 
 type User {
+  id: ID!
   userId: ID!
   displayName: String!
   email: String!

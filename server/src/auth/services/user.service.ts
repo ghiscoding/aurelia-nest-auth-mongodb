@@ -19,7 +19,7 @@ export class UserService {
     if (userCount === 0) {
       roles.push('ADMIN'); // the very first user will automatically get the ADMIN role
     }
-    const userId = newUser.userId || objectId.toString(); // copy over the same _id when userId isn't provided (by local signup users)
+    const userId = newUser?.userId || objectId.toString(); // copy over the same _id when userId isn't provided (by local signup users)
     const createdUser = new this.userModel({ ...newUser, roles, _id: objectId, userId });
     return await createdUser.save();
   }
@@ -33,7 +33,7 @@ export class UserService {
   }
 
   async findById(id: string): Promise<User> {
-    const user = await this.userModel.findById(id).exec();
+    const user = await this.userModel?.findById(id).exec();
     if (!user) {
       throw new NotFoundException('Could not find user.');
     }

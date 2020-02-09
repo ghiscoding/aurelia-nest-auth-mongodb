@@ -1,35 +1,9 @@
 <template>
-  <div class="container">
+  <div id="grid-container" class="container-fluid">
     <h2>Users List</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Display Name</th>
-          <th>Email</th>
-          <th>Roles</th>
-          <th>Picture</th>
-          <th>Facebook</th>
-          <th>GitHub</th>
-          <th>Google</th>
-          <th>LinkedIn</th>
-          <th>Twitter</th>
-          <th>Windows Live</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="user of users">
-          <td>${user.displayName}</td>
-          <td>${user.email}</td>
-          <td>${user.roles}</td>
-          <td>${user.picture}</td>
-          <td>${user.facebook}</td>
-          <td>${user.github}</td>
-          <td>${user.google}</td>
-          <td>${user.linkedin}</td>
-          <td>${user.twitter}</td>
-          <td>${user.windowslive}</td>
-        </tr>
-      </tbody>
-    </table>
+    <aurelia-slickgrid grid-id="grid1"
+                       column-definitions.bind="columnDefinitions"
+                       grid-options.bind="gridOptions">
+    </aurelia-slickgrid>
   </div>
 </template>

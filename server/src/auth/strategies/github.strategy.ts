@@ -1,6 +1,6 @@
 import { Injectable, Logger } from '@nestjs/common';
 import { PassportStrategy } from '@nestjs/passport';
-import { Strategy } from 'passport-github';
+import { Strategy } from 'passport-github2';
 import { VerifiedCallback } from 'passport-jwt';
 
 import authConfig from '../auth-config.development';

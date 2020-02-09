@@ -1,11 +1,16 @@
-import { Query, Resolver } from '@nestjs/graphql';
+import { Args, Query, Resolver } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 
 import { UsersService } from './users.service';
 import { GraphqlPassportAuthGuard } from '../shared/guards';
-import { User } from './graphTypes/user.graphtype';
+import { PaginatedResponse } from '../shared/graphql/types/paginatedResponse.type';
+import { User } from './graphql/types/user.type';
 import { Roles } from '../shared/decorators/roles.decorator';
 import { CurrentUser } from '../shared/decorators';
+import { UserQueryArgs } from './graphql/inputs/pagination.input';
+
+const PaginatedUserResponse = PaginatedResponse(User);
+type PaginatedUserResponse = InstanceType<typeof PaginatedUserResponse>;
 
 @Resolver()
 export class UsersResolver {
@@ -13,11 +18,11 @@ export class UsersResolver {
     private readonly usersService: UsersService,
   ) { }
 
-  @Query(() => [User])
+  @Query(returns => PaginatedUserResponse)
   @Roles('admin')
   @UseGuards(new GraphqlPassportAuthGuard('ADMIN'))
-  async users() {
-    return this.usersService.findAll();
+  async users(@Args() queryArgs: UserQueryArgs): Promise<PaginatedUserResponse> {
+    return await this.usersService.getUsers(queryArgs);
   }
 
   @Query(() => User)

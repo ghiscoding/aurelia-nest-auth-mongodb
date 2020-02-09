@@ -85,7 +85,7 @@ You can see if it works by typing the following in the query window and click on
   hello
 }
 ```
-Also note that most of the GraphQL query are protected and cannot be run directly in the GraphQL playground unless you use the JWT token.
+Also note that most of the GraphQL queries are protected and cannot be run directly in the GraphQL playground unless you use the JWT token.
 
 #### Protected GraphQL Queries/Mutations
 Some of the GraphQL queries are protected by a NestJS Guard (`GraphqlPassportAuthGuard`) and requires you to be authenticated (and some also requires to have the Admin role) and you might be wondering how to query them? Simple, in GraphQL Playground we can pass an `Http Header` (bottom of the page) with the `Autorization` header that will contain our JWT token (which you can get from Chrome network)... and boom! We can start querying as if we were (are) authenticated, sweet!
@@ -141,5 +141,8 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 - [x] Protect MongoDB with username/password
 - [x] Add Node/Chrome Debugger
 - [x] Add Swagger with Bearer
-- [ ] Use [Aurelia-Slickgrid](https://github.com/ghiscoding/aurelia-slickgrid) on client side to show GraphQL lists (cats, users)
-- [ ] Use TypeScript 3.7 and configure Optional Chaining & Nullish Coalescing
+- [x] Use [Aurelia-Slickgrid](https://github.com/ghiscoding/aurelia-slickgrid) on client side to show GraphQL lists (cats, users)
+  - [x] add Grid with GraphQL but without Pagination
+  - [ ] add possible Grid Filtering
+  - [ ] add possible Grid Sorting
+- [x] Use TypeScript 3.7 and configure Optional Chaining & Nullish Coalescing

@@ -18,7 +18,6 @@ const when = (condition, config, negativeConfig) =>
 const title = 'Aurelia Navigation Skeleton';
 const outDir = path.resolve(__dirname, project.platform.output);
 const srcDir = path.resolve(__dirname, 'src');
-const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const baseUrl = '';
 
 const cssRules = [
@@ -200,7 +199,7 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
     ...when(!tests, new CopyWebpackPlugin([
       { from: 'static', to: outDir, ignore: ['.*'] }, // ignore dot (hidden) files
       { from: 'favicon.ico', to: 'favicon.ico' },
-      { from: 'assets', to: 'assets' }
+      // { from: 'assets', to: 'assets' }
     ])),
 
     ...when(analyze, new BundleAnalyzerPlugin()),

@@ -3,13 +3,14 @@ import { UseGuards } from '@nestjs/common';
 import { Int } from 'type-graphql';
 
 import { CatsService } from './services/cats.service';
-import { Cat } from './graphTypes/cat.type';
-import { CatInput } from './inputs/cat-input';
+import { Cat } from './graphql/types/cat.type';
+import { CatInput } from './graphql/inputs/cat-input';
 import { GraphqlPassportAuthGuard } from '../shared/guards/graphql-passport-auth.guard';
 import { Roles } from '../shared/decorators/roles.decorator';
 import { CurrentUser } from '../shared/decorators';
 import { User } from '../shared/models';
 import { OwnersService } from './services/owners.service';
+import { CatQueryArgs } from './graphql/inputs/catQueryArgs.input';
 
 @Resolver('Cat')
 @Resolver(of => Cat)
@@ -31,8 +32,8 @@ export class CatsResolver {
 
   @Query(returns => [Cat])
   @UseGuards(GraphqlPassportAuthGuard)
-  async cats() {
-    return this.catsService.findAll();
+  async cats(@Args() queryArgs: CatQueryArgs): Promise<any> {
+    return this.catsService.query(queryArgs);
   }
 
   @ResolveProperty('owner')

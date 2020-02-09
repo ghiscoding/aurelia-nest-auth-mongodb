@@ -18,8 +18,7 @@
       false
     ],
     "max-line-length": [
-      true,
-      150
+      false
     ],
     "member-ordering": [
       false
@@ -29,7 +28,9 @@
     ],
     "arrow-parens": false,
     "no-console": false,
+    "no-string-literal": false,
     "object-literal-sort-keys": false,
+    "trailing-comma": false,
     "variable-name": false
   },
   "rulesDirectory": []

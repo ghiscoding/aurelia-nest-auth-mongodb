@@ -4,8 +4,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { Model } from 'mongoose';
 
 import { Cat } from '../models/cat.interface';
-import { CatInput } from '../inputs/cat-input';
-import { User } from '../../shared/models';
+import { CatInput } from '../graphql/inputs/cat-input';
+import { User, Direction } from '../../shared/models';
 
 @Injectable()
 @UseGuards(AuthGuard('jwt'))
@@ -18,8 +18,17 @@ export class CatsService {
     return await createdCat.save();
   }
 
-  async findAll(): Promise<Cat[]> {
-    return await this.catModel.find().exec();
+  async query(queryArgs: { orderBy?: Array<{ field: string; direction: Direction; }> }): Promise<Cat[]> {
+    let modelFind = this.catModel.find();
+    // [['name', 'asc']]
+    if (queryArgs && Array.isArray(queryArgs.orderBy)) {
+      const sort = [];
+      queryArgs.orderBy.forEach(sorter => sort.push([sorter.field, sorter.direction]));
+      modelFind = modelFind.sort(sort);
+    }
+    const result = await modelFind.exec();
+    console.log('result', result);
+    return result;
   }
 
   async findOneById(id: number): Promise<User> {

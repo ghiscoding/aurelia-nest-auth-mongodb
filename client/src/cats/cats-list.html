@@ -1,23 +1,10 @@
 <template>
-  <div class="container">
+  <div id="grid-container" class="container">
     <h2>Cats List</h2>
-    <table class="table">
-      <thead>
-        <tr>
-          <th>Name</th>
-          <th>Breed</th>
-          <th>Age</th>
-          <th>Owner</th>
-        </tr>
-      </thead>
-      <tbody>
-        <tr repeat.for="cat of cats">
-          <td>${cat.name}</td>
-          <td>${cat.breed}</td>
-          <td>${cat.age}</td>
-          <td>${cat.owner.displayName}</td>
-        </tr>
-      </tbody>
-    </table>
+    <h5><em>Load data once with GraphQL but use local filtering/sorting afterward</em></h5>
+    <aurelia-slickgrid grid-id="grid1"
+                       column-definitions.bind="columnDefinitions"
+                       grid-options.bind="gridOptions">
+    </aurelia-slickgrid>
   </div>
 </template>

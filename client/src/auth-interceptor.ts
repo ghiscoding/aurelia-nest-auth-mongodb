@@ -9,7 +9,7 @@ export class AuthInterceptor implements Interceptor {
 
   request(message: Request) {
     let token = window.localStorage.getItem(authConfig.tokenName) || null;
-    message.headers.append('Authorization', `Bearer ${token}`);
+    message?.headers?.append('Authorization', `Bearer ${token}`);
     return message;
   }
 

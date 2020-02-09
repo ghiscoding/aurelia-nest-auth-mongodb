@@ -1,10 +1,11 @@
 import { ObjectType, Field, ID } from 'type-graphql';
-import { Provider } from './provider.graphtype';
-import { ApiProperty } from '@nestjs/swagger';
+import { Provider } from './provider.type';
 
 @ObjectType()
 export class User {
-  @ApiProperty({ description: 'user ID' })
+  @Field(() => ID)
+  readonly id: string;
+
   @Field(() => ID)
   readonly userId: string;
 

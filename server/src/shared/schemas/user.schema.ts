@@ -10,8 +10,6 @@ export const UserSchema = new mongoose.Schema({
   userId: { type: String, unique: true },
   password: String,
   email: { type: String, lowercase: true },
-  createdOn: { type: Date, default: Date.now },
-  updatedOn: { type: Date, default: Date.now },
   displayName: String,
   provider: String,
   providers: [ProviderSchema],
@@ -26,4 +24,4 @@ export const UserSchema = new mongoose.Schema({
   microsoft: String,
   twitter: String,
   windowslive: String,
-});
+}, { timestamps: true });

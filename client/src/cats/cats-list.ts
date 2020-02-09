@@ -1,23 +1,41 @@
 import { autoinject } from 'aurelia-framework';
+import { Column, Formatters, GraphqlService, GraphqlServiceApi, GridOption } from 'aurelia-slickgrid';
+
 import { Cat } from './cat.interface';
 import { CatsDataService } from './cats-data.service';
-import { GraphqlResult } from 'shared/models/graphql-result';
 
 @autoinject()
 export class CatsList {
-  cats: Cat[] = [];
+  gridOptions: GridOption;
+  columnDefinitions: Column[];
 
-  constructor(private catsDataService: CatsDataService) { }
-
-  activate() {
-    this.getCats();
+  constructor(private catsDataService: CatsDataService) {
+    this.defineGrid();
   }
 
-  async getCats() {
-    const graphqlResult = await this.catsDataService.getAll<GraphqlResult>();
-    if (graphqlResult && graphqlResult.data) {
-      const { cats } = graphqlResult.data;
-      this.cats = cats;
+  defineGrid() {
+    this.columnDefinitions = [
+      { id: 'name', name: 'Name', field: 'name', filterable: true, sortable: true },
+      { id: 'breed', name: 'Breed', field: 'breed', filterable: true, sortable: true },
+      { id: 'age', name: 'Age', field: 'age', filterable: true, sortable: true },
+      { id: 'owner', name: 'Owner', field: 'owner.displayName', filterable: true, sortable: true, formatter: Formatters.complexObject },
+    ];
+
+    this.gridOptions = {
+      enableFiltering: true,
+      backendServiceApi: {
+        service: new GraphqlService(),
+        options: {
+          datasetName: 'cats',
+          columnDefinitions: this.columnDefinitions,
+          useLocalFiltering: true,
+          useLocalSorting: true,
+        },
+        process: (query) => this.catsDataService.getCats(query),
+        useLocalFiltering: true,
+        useLocalSorting: true,
+      } as GraphqlServiceApi,
+      enablePagination: false,
     }
   }
 }

@@ -10,11 +10,13 @@ import { CatsModule } from './cats/cats.module';
 import { UsersModule } from './users/users.module';
 import { LoggingInterceptor } from './shared/interceptors/logging.interceptor';
 import { HttpExceptionFilter } from './shared/filters/http-exception.filter';
+import { CommonModule } from './shared/common.module';
 
 @Module({
   imports: [
     AuthModule,
     CatsModule,
+    // CommonModule,
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       context: ({ req }) => ({ req }),
