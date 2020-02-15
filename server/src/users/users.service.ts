@@ -4,10 +4,8 @@ import { AuthGuard } from '@nestjs/passport';
 import { Model } from 'mongoose';
 
 import { User } from './models/user.interface';
-import { Operator } from '../shared/graphql/enums';
-import { FilterByString } from '../shared/graphql/types/filterByString.type';
-import { OrderByString } from '../shared/graphql/types/orderByString.type';
 import { UserQueryArgs } from './graphql/inputs/pagination.input';
+import { getFilterByQuery } from '../shared/graphql/utils/utilities';
 
 
 @Injectable()
@@ -25,7 +23,7 @@ export class UsersService {
   async getUsers(userQueryArgs: UserQueryArgs): Promise<{ totalCount: number, nodes: User[], pageInfo?: { hasNextPage: boolean; endCursor: string; } }> {
     const { first, offset, filterBy, orderBy, cursor } = userQueryArgs;
 
-    const findQuery = this.getFilters(filterBy) || {};
+    const findQuery = getFilterByQuery(filterBy) || {};
     if (cursor) {
       findQuery['_id'] = {
         $lt: this.base64ToString(cursor)
@@ -59,37 +57,5 @@ export class UsersService {
       throw new NotFoundException('Could not find user.');
     }
     return user;
-  }
-
-  getFilters(filterBy: FilterByString[]) {
-    const filterObj = {};
-    if (Array.isArray(filterBy)) {
-      filterBy.forEach(filter => {
-        filterObj[filter.field] = this.getFilterByOperator(filter.operator, filter.value);
-      });
-    }
-
-    return filterObj;
-  }
-
-  getFilterByOperator(operator: Operator, searchValue: string) {
-    let operation;
-
-    switch (operator) {
-      case Operator.EndsWith:
-        operation = { $regex: new RegExp(`.*${searchValue}$`, 'i') };
-        break;
-      case Operator.StartsWith:
-        operation = { $regex: new RegExp(`^${searchValue}.*`, 'i') };
-        break;
-      case Operator.EQ:
-        operation = { $regex: new RegExp(`(?i)(?<=\\s|^)${searchValue}(?=\\s|$)`, 'i') };
-        break;
-      case Operator.Contains:
-      default:
-        operation = { $regex: new RegExp(`.*${searchValue}.*`, 'i') };
-        break;
-    }
-    return operation;
   }
 }

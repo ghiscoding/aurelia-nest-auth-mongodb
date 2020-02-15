@@ -143,6 +143,6 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 - [x] Add Swagger with Bearer
 - [x] Use [Aurelia-Slickgrid](https://github.com/ghiscoding/aurelia-slickgrid) on client side to show GraphQL lists (cats, users)
   - [x] add Grid with GraphQL but without Pagination
-  - [ ] add possible Grid Filtering
-  - [ ] add possible Grid Sorting
+  - [x] add possible Grid Filtering
+  - [x] add possible Grid Sorting
 - [x] Use TypeScript 3.7 and configure Optional Chaining & Nullish Coalescing
