@@ -47,34 +47,19 @@ export class Profile {
     }
   }
 
-  async link(providerName: string) {
-    console.log('Link method not implemented yet!');
-    const token = await this.authenticate(providerName);
-    console.log('token::', token)
-    const result = await this.authService.link(providerName, token);
-    console.log('result::', result)
-    // return this.authService.link(provider)
-    //   .then((res) => console.log(res))
-    // return this.authService.authenticate(provider, true, null)
-    //   .then(() => this.authService.getMe())
-    //   .then(data => this.profile = data)
-    //   .catch(err => console.log(`link failure in profile.js => ${err}`));
+  async applyLink(providerName: string, providerId: string) {
+    providerId ? this.unlink(providerName, providerId) : this.link(providerName);
   }
 
-  unlink(provider): any {
-    console.log('Unlink method not implemented yet!');
-    return this.authService.unlink(provider)
-      .then((res) => console.log(res))
-    /*.then((response)=>{
-      console.log(`auth response ${response}`);
-      return this.auth.getMe();
-    })*/
-    // .then(() => this.auth.getMe())
-    // .then(data => {
-    //   this.profile = data;
-    // }).catch(err => {
-    //   console.log(`unlink failure in profile.js => ${err}`);
-    // });
+  async link(providerName: string) {
+    const token = await this.authenticate(providerName);
+    const user = await this.authService.link(providerName, token);
+    this.profile = user;
+  }
+
+  async unlink(providerName: string, providerId: string) {
+    const user = await this.authService.unlink({ id: providerId, name: providerName });
+    this.profile = user;
   }
 
 }

@@ -114,13 +114,15 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 	- [x] Use JWT with Passport and bcrypt for the password encryption while saving in DB
 	- [x] Validate username/password in UI
 	- [x] Add form validation
-	- [ ] Add possibility to update Password in User Profile when using username/password
 - [x] User Signup Frontend
 	- [x] Encrypt password instead of plain text when sending it over the line
 	- [x] Redirect to Profile after doing a sign up
 	- [x] Add form validation
 	- [x] Display warning when trying to signup duplicate email
-- [ ] CRUD on User Profile ("Me" controller)
+- [ ] User Profile  
+  - [x] Add user profile detail page
+	- [ ] Add possibility to update Password in User Profile when using username/password
+  - [ ] CRUD on User Profile ("Me" controller)
 - [ ] Link/Unlink multiple accounts to a single account
     - [x] Ability to add multiple accounts to an OAuth account
     - [ ] Cleanup NestJS code to do it in 1 action instead of currently 2.

@@ -25,6 +25,7 @@ import { CommonModule } from './shared/common.module';
       useCreateIndex: true,
       useNewUrlParser: true,
       useUnifiedTopology: true,
+      useFindAndModify: false,
     }),
     UsersModule,
   ],

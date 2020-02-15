@@ -3,21 +3,28 @@ import { Column, Formatter, Formatters, GraphqlService, GridOption, Filters, Mul
 
 import { User } from './user.interface';
 import { UsersDataService } from './users-data.service';
+import './users-list.scss';
 
 
 const providerFormatter: Formatter = (row, cell, value, columnDef, dataContext) => {
   let output = '';
   if (dataContext?.providers) {
     for (let provider of dataContext.providers) {
+      let iconName = '';
+      let iconColor = '';
+
+      if (dataContext.userId === dataContext[provider.name]) {
+        iconColor = 'fa-border'; // add a border on the original registered account
+      }
       switch (provider.name) {
         case 'windowslive':
-          output += ` <i class="fa fa-windows" aria-hidden="true" title="userId: ${dataContext[provider.name]}"></i>`;
+          iconName += `fa-windows`;
           break;
         default:
-          output += ` <i class="fa fa-${provider.name}" aria-hidden="true" title="userId: ${dataContext[provider.name]}"></i>`;
+          iconName += `fa-${provider.name}`;
           break;
-
       }
+      output += ` <i class="fa fa-lg ${iconName} ${iconColor}" aria-hidden="true" title="userId: ${dataContext[provider.name]}"></i>`;
     }
   }
   // you can return a string of a object (of type FormatterResultObject), the 2 types are shown below
@@ -53,7 +60,7 @@ export class UsersList {
       {
         id: 'providerNames', name: 'Providers',
         field: 'providers.name',
-        fields: ['facebook', 'github', 'google', 'linkedin', 'microsoft', 'twitter', 'windowslive'],
+        fields: ['userId', 'facebook', 'github', 'google', 'linkedin', 'microsoft', 'twitter', 'windowslive'],
         filterable: true, sortable: true,
         formatter: providerFormatter,
         filter: {

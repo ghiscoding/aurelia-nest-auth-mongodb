@@ -48,13 +48,17 @@ export class UserService {
     let result;
     const decodedToken = decode(token) as User;
     const user = await this.userModel.findOne({ userId });
-    const provider = decodedToken && decodedToken.provider;
-    console.log('token is::', token, ' user::', user, ' - provider::', provider, ' - providerId::', decodedToken[provider])
-    if (user && decodedToken && provider) {
-      user[provider] = decodedToken[provider];
+    const providerName = decodedToken && decodedToken.provider;
+    if (user && decodedToken && providerName) {
+      user[providerName] = decodedToken[providerName];
+      user.providers.push({ providerId: decodedToken[providerName], name: providerName });
       result = await user.save();
-      console.log('updatedUser::', result)
     }
+    return result;
+  }
+
+  async unlink(userId: string, providerName: string) {
+    const result = await this.userModel.findOneAndUpdate({ userId }, { $unset: { [providerName]: true }, $pull: { 'providers': { name: providerName } } }, { new: true });
     return result;
   }
 

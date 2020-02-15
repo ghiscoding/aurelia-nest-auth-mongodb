@@ -52,12 +52,12 @@ export class AuthService {
       method: 'post',
       body: json({ token })
     })
-      .then((res) => json(res));
+      .then(this.status);
   }
 
   /** Unlink a Provider to the Current Users */
   unlink(provider: { id: string, name: string }): Promise<any> {
-    return this.http.fetch(`${authConfig.baseUrl}/link/${provider.name}/${provider.id}`)
-      .then((res) => console.log(res));
+    return this.http.fetch(`${authConfig.baseUrl}/unlink/${provider.name}`)
+      .then(this.status);
   }
 }

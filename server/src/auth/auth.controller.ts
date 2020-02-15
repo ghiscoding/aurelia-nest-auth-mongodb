@@ -175,16 +175,16 @@ export class AuthController {
   }
 
   @ApiOperation({ summary: 'Unlink an OAuth Provider from a User' })
-  @Get('unlink/:provider')
+  @Get('unlink/:providerName')
   @UseGuards(AuthGuard('jwt'))
   unlink(@Param() params, @Request() req) {
-    console.log(req.user, params.provider);
+    return this.userService.unlink(req.user.userId, params.providerName)
   }
 
   @ApiOperation({ summary: 'Get User\'s Information' })
   @UseGuards(AuthGuard('jwt'))
   @Get('me')
   getProfile(@Request() req) {
-    return req.user;
+    return this.userService.findOne({ userId: req.user.userId });
   }
 }
