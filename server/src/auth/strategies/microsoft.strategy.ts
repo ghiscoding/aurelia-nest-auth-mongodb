@@ -33,11 +33,8 @@ export class MicrosoftStrategy extends PassportStrategy(Strategy, 'microsoft') {
       };
 
       // console.log('userProfile::', profile)
-      const jwt: string = await this.authService.validateOAuthLogin(userProfile, Provider.MICROSOFT);
-
-      const user = { ...userProfile, jwt };
-      req.user = user;
-      done(null, user);
+      const oauthResponse = await this.authService.validateOAuthLogin(userProfile, Provider.MICROSOFT);
+      done(null, { ...JSON.parse(JSON.stringify(oauthResponse.user)), jwt: oauthResponse.jwt });
     } catch (err) {
       done(err, false);
     }

@@ -35,13 +35,8 @@ export class WindowsliveStrategy extends PassportStrategy(Strategy, 'windowslive
         displayName: jsonProfile.name,
         picture: null, // profile.photos[0].value, <-- no longer valid, we now have to use MS Graph API
       };
-      // console.log('userProfile::', userProfile, ' - req::', req.headers)
-      // console.log('userProfile::', profile)
-      const jwt: string = await this.authService.validateOAuthLogin(userProfile, Provider.WINDOWS_LIVE);
-
-      const user = { ...userProfile, jwt };
-      req.user = user;
-      done(null, user);
+      const oauthResponse = await this.authService.validateOAuthLogin(userProfile, Provider.WINDOWS_LIVE);
+      done(null, { ...JSON.parse(JSON.stringify(oauthResponse.user)), jwt: oauthResponse.jwt });
     } catch (err) {
       done(err, false);
     }

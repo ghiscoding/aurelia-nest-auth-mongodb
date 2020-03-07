@@ -47,6 +47,13 @@ export class Profile {
     }
   }
 
+  findByProviderName(profile, providerName: string) {
+    if (profile && Array.isArray(profile.providers)) {
+      return profile.providers.find((provider) => provider.name === providerName);
+    }
+    return null;
+  }
+
   async applyLink(providerName: string, providerId: string) {
     providerId ? this.unlink(providerName, providerId) : this.link(providerName);
   }

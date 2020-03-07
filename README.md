@@ -121,12 +121,13 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
 	- [x] Display warning when trying to signup duplicate email
 - [ ] User Profile  
   - [x] Add user profile detail page
-	- [ ] Add possibility to update Password in User Profile when using username/password
+  - [ ] Add possibility to update Password in User Profile when using username/password
   - [ ] CRUD on User Profile ("Me" controller)
 - [ ] Link/Unlink multiple accounts to a single account
-    - [x] Ability to add multiple accounts to an OAuth account
-    - [ ] Cleanup NestJS code to do it in 1 action instead of currently 2.
+  - [x] Ability to add multiple accounts to an OAuth account
+  - [ ] Cleanup NestJS code to do it in 1 action instead of currently 2.
 	- [ ] Link a user to a local user (username/password) with its email
+  - [ ] Use original and/or linked account should connect the same user without recreating a new user in DB
 - [x] GraphQL add the "whoAmI" (me) resolver
 - [ ] Aurelia Auth separated into its own plugin
   - [x] JWT Storage

@@ -37,9 +37,8 @@ export class FacebookStrategy extends PassportStrategy(Strategy, 'facebook') {
         picture: image && image.url || profile.photos[0].value,
       };
 
-      const jwt: string = await this.authService.validateOAuthLogin(userProfile, Provider.FACEBOOK);
-      const user = { ...userProfile, jwt };
-      done(null, user);
+      const oauthResponse = await this.authService.validateOAuthLogin(userProfile, Provider.FACEBOOK);
+      done(null, { ...JSON.parse(JSON.stringify(oauthResponse.user)), jwt: oauthResponse.jwt });
     } catch (err) {
       done(err, false);
     }

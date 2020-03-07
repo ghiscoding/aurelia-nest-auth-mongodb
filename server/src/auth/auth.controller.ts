@@ -91,7 +91,7 @@ export class AuthController {
   @UseGuards(AuthGuard('windowslive'))
   @ApiOperation({ summary: 'Handles the Microsoft Windows Live OAuth2 callback and return User Info when Successful' })
   windowsliveLoginCallback(@Req() req, @Res() res) {
-    console.log('this is the req.user::', req.user)
+    console.log('this is the req.user::', req.user.jwt, req.user.userId)
     const jwt: string = req.user.jwt;
     if (jwt) {
       res.redirect(`${authConfig.callbackSuccessUrl}?code=${jwt}`);
@@ -171,13 +171,14 @@ export class AuthController {
   @UseGuards(AuthGuard('jwt'))
   providerLink(@Param() params, @Body() tokenDto: TokenDto, @Request() req) {
     console.log('link::', req.user, 'providerName::', params.providerName, ' - token::', tokenDto)
-    return this.userService.link(req.user.userId, tokenDto.token);
+    return this.userService.link(req.user.userId, tokenDto.token, params.providerName);
   }
 
   @ApiOperation({ summary: 'Unlink an OAuth Provider from a User' })
   @Get('unlink/:providerName')
   @UseGuards(AuthGuard('jwt'))
   unlink(@Param() params, @Request() req) {
+    console.log('user is', req.user)
     return this.userService.unlink(req.user.userId, params.providerName)
   }
 
@@ -185,6 +186,6 @@ export class AuthController {
   @UseGuards(AuthGuard('jwt'))
   @Get('me')
   getProfile(@Request() req) {
-    return this.userService.findOne({ userId: req.user.userId });
+    return this.userService.findOne({ 'providers.providerId': req.user.userId });
   }
 }

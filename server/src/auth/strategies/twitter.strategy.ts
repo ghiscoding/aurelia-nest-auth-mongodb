@@ -32,9 +32,8 @@ export class TwitterStrategy extends PassportStrategy(Strategy, 'twitter') {
         picture: null,
       };
 
-      const jwt: string = await this.authService.validateOAuthLogin(userProfile, Provider.TWITTER);
-      const user = { ...userProfile, jwt };
-      done(null, user);
+      const oauthResponse = await this.authService.validateOAuthLogin(userProfile, Provider.TWITTER);
+      done(null, { ...JSON.parse(JSON.stringify(oauthResponse.user)), jwt: oauthResponse.jwt });
     } catch (err) {
       done(err, false);
     }

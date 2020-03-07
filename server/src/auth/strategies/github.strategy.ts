@@ -31,9 +31,8 @@ export class GithubStrategy extends PassportStrategy(Strategy, 'github') {
         picture: `${jsonProfile.avatar_url}&size=200`,
       };
       console.log('userProfile::', userProfile, ' - req::', req.headers)
-      const jwt: string = await this.authService.validateOAuthLogin(userProfile, Provider.GITHUB);
-      const user = { ...userProfile, jwt };
-      done(null, user);
+      const oauthResponse = await this.authService.validateOAuthLogin(userProfile, Provider.GITHUB);
+      done(null, { ...JSON.parse(JSON.stringify(oauthResponse.user)), jwt: oauthResponse.jwt });
     } catch (err) {
       done(err, false);
     }

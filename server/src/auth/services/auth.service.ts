@@ -7,6 +7,7 @@ import authConfig from '../auth-config.development';
 import { UserService } from './user.service';
 import { User } from '../models';
 import { UserSignupDto } from '../dto';
+import e = require('express');
 
 export enum Provider {
   FACEBOOK = 'facebook',
@@ -25,19 +26,18 @@ export class AuthService {
 
   constructor(private jwtService: JwtService, private userService: UserService) { }
 
-  async validateOAuthLogin(userProfile: any, provider: Provider): Promise<string> {
+  async validateOAuthLogin(userProfile: any, provider: Provider): Promise<{ jwt: string; user: User }> {
     try {
-      const payload = { ...userProfile, provider, providers: [{ providerId: userProfile.userId, name: provider }] };
-
       // find user in MongoDB and if not found then create it in the DB
       let existingUser = await this.userService.findOne({ [provider]: userProfile.userId });
       if (!existingUser) {
-        existingUser = await this.userService.create(payload);
+        existingUser = await this.userService.create({ ...userProfile, provider, providers: [{ providerId: userProfile.userId, name: provider }] });
       }
 
-      payload.roles = existingUser && existingUser.roles || [];
-      const jwt: string = sign(payload, this.JWT_SECRET_KEY, { expiresIn: 3600 });
-      return jwt;
+      const { userId, email, displayName, picture, providers, roles } = existingUser;
+      const signingPayload = { userId, email, displayName, picture, providers, roles };
+      const jwt: string = sign(signingPayload, this.JWT_SECRET_KEY, { expiresIn: 3600 });
+      return { jwt, user: existingUser };
     } catch (err) {
       throw new InternalServerErrorException('validateOAuthLogin', err.message);
     }

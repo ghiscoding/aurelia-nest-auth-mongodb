@@ -40,34 +40,38 @@
 
             <div class="col-lg-8 col-md-12 social-buttons">
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.facebook ? 'btn-facebook' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('facebook', profile.facebook)">
-                <i class="fa fa-facebook"></i> ${profile.facebook ? 'Unlink' : 'Link'} Facebook Account
+                      class.bind="findByProviderName(profile, 'facebook') ? 'btn-facebook' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('facebook', findByProviderName(profile, 'facebook'))">
+                <i class="fa fa-facebook"></i> ${findByProviderName(profile, 'facebook') ? 'Unlink' : 'Link'} Facebook
+                Account
               </button>
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.google ? 'btn-google' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('google', profile.google)">
-                <i class="fa fa-google"></i> ${profile.google ? 'Unlink' : 'Link'} Google Account
+                      class.bind="findByProviderName(profile, 'google') ? 'btn-google' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('google', findByProviderName(profile, 'google'))">
+                <i class="fa fa-google"></i> ${findByProviderName(profile, 'google') ? 'Unlink' : 'Link'} Google Account
               </button>
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.github ? 'btn-github' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('github', profile.github)">
-                <i class="fa fa-github"></i> ${profile.github ? 'Unlink' : 'Link'} GitHub Account
+                      class.bind="findByProviderName(profile, 'github') ? 'btn-github' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('github', findByProviderName(profile, 'github'))">
+                <i class="fa fa-github"></i> ${findByProviderName(profile, 'github') ? 'Unlink' : 'Link'} GitHub Account
               </button>
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.linkedin ? 'btn-linkedin' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('linkedin', profile.linkedin)">
-                <i class="fa fa-linkedin"></i> ${profile.linkedin ? 'Unlink' : 'Link'} LinkedIn Account
+                      class.bind="findByProviderName(profile, 'linkedin') ? 'btn-linkedin' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('linkedin', findByProviderName(profile, 'linkedin'))">
+                <i class="fa fa-linkedin"></i> ${findByProviderName(profile, 'linkedin') ? 'Unlink' : 'Link'} LinkedIn
+                Account
               </button>
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.twitter ? 'btn-twitter' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('twitter', profile.twitter)">
-                <i class="fa fa-twitter"></i> ${profile.twitter ? 'Unlink' : 'Link'} Twitter Account
+                      class.bind="findByProviderName(profile, 'twitter') ? 'btn-twitter' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('twitter', findByProviderName(profile, 'twitter'))">
+                <i class="fa fa-twitter"></i> ${findByProviderName(profile, 'twitter') ? 'Unlink' : 'Link'} Twitter
+                Account
               </button>
               <button class="btn btn-sm btn-social btn-block"
-                      class.bind="profile.windowslive ? 'btn-microsoft' : 'btn-secondary faded-60'"
-                      click.delegate="applyLink('windowslive', profile.windowslive)">
-                <i class="fa fa-windows"></i> ${profile.windowslive ? 'Unlink' : 'Link'} Windows Live Account
+                      class.bind="findByProviderName(profile, 'windowslive') ? 'btn-microsoft' : 'btn-secondary faded-60'"
+                      click.delegate="applyLink('windowslive', findByProviderName(profile, 'windowslive'))">
+                <i class="fa fa-windows"></i> ${findByProviderName(profile, 'windowslive') ? 'Unlink' : 'Link'} Windows
+                Live Account
               </button>
             </div>
           </div>

@@ -15,6 +15,8 @@ const providerFormatter: Formatter = (row, cell, value, columnDef, dataContext) 
 
       if (dataContext.userId === dataContext[provider.name]) {
         iconColor = 'fa-border'; // add a border on the original registered account
+      } else {
+        iconColor = 'fa-noborder'
       }
       switch (provider.name) {
         case 'windowslive':
