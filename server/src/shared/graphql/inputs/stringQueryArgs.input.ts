@@ -1,4 +1,4 @@
-import { ArgsType, Field, Int, InputType } from 'type-graphql';
+import { ArgsType, Field } from '@nestjs/graphql';
 import { FilterByString } from '../types/filterByString.type';
 import { OrderByString } from '../types/orderByString.type';
 

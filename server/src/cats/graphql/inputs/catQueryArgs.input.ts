@@ -1,4 +1,4 @@
-import { ArgsType, Field } from 'type-graphql';
+import { ArgsType, Field } from '@nestjs/graphql';
 import { CatFields } from '../enums/catFields.enum';
 import { FilterByGeneric, OrderByGeneric } from '../../../shared/graphql/types';
 

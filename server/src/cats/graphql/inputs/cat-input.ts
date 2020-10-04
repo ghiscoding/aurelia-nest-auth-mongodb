@@ -1,4 +1,4 @@
-import { Field, Int, InputType } from 'type-graphql';
+import { Field, Int, InputType } from '@nestjs/graphql';
 
 @InputType()
 export class CatInput {

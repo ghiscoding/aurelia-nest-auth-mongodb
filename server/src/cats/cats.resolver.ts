@@ -1,6 +1,6 @@
 import { Args, Query, Resolver, Mutation, ResolveProperty, Parent } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
-import { Int } from 'type-graphql';
+import { Int } from '@nestjs/graphql';
 
 import { CatsService } from './services/cats.service';
 import { Cat } from './graphql/types/cat.type';

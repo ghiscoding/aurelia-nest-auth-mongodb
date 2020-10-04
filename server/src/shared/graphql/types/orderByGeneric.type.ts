@@ -1,4 +1,4 @@
-import { InputType, Field } from 'type-graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import { Direction } from '../enums/direction.enum';
 
 export function OrderByGeneric<TItem>(TItemEnum: any, name: string): any {

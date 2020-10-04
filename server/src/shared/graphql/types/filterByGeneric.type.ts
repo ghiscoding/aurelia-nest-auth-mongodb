@@ -1,4 +1,4 @@
-import { InputType, Field } from 'type-graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import { Operator } from '../enums/operator.enum';
 
 export function FilterByGeneric<TItem>(TItemEnum: any, name: string): any {

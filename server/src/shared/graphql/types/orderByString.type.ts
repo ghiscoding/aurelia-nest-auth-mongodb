@@ -1,4 +1,4 @@
-import { InputType, Field } from 'type-graphql';
+import { InputType, Field } from '@nestjs/graphql';
 import { Direction } from '../enums/direction.enum';
 
 @InputType(`OrderByString`, { isAbstract: true })
