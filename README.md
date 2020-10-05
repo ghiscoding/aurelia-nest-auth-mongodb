@@ -149,3 +149,8 @@ For any REST APIs, using a tool like Swagger is very helpful, it's already imple
   - [x] add possible Grid Filtering
   - [x] add possible Grid Sorting
 - [x] Use TypeScript 3.7 and configure Optional Chaining & Nullish Coalescing
+
+### Print Screens
+
+![Auth-Linkedin|678x500](https://i.imgur.com/xbw5RrJ.png)
+![GraphQL|690x476](https://i.imgur.com/fXEDdfe.png)
