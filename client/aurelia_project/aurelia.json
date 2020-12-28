@@ -1,9 +1,17 @@
 {
   "name": "aurelia-nest-mongo-graphql",
   "type": "project:application",
-  "bundler": {
-    "id": "webpack",
-    "displayName": "Webpack"
+  "paths": {
+    "root": "src",
+    "resources": "resources",
+    "elements": "resources/elements",
+    "attributes": "resources/attributes",
+    "valueConverters": "resources/value-converters",
+    "bindingBehaviors": "resources/binding-behaviors"
+  },
+  "transpiler": {
+    "id": "typescript",
+    "fileExtension": ".ts"
   },
   "build": {
     "options": {
@@ -13,56 +21,11 @@
     }
   },
   "platform": {
-    "id": "web",
-    "displayName": "Web",
-    "port": 9000,
     "hmr": false,
-    "open": false,
+    "open": true,
+    "port": 9000,
+    "host": "localhost",
     "output": "dist"
   },
-  "loader": {
-    "id": "none",
-    "displayName": "None"
-  },
-  "transpiler": {
-    "id": "typescript",
-    "displayName": "TypeScript",
-    "fileExtension": ".ts"
-  },
-  "markupProcessor": {
-    "id": "none",
-    "displayName": "None",
-    "fileExtension": ".html"
-  },
-  "cssProcessor": {
-    "id": "sass",
-    "displayName": "Sass",
-    "fileExtension": ".scss"
-  },
-  "editor": {
-    "id": "vscode",
-    "displayName": "Visual Studio Code"
-  },
-  "unitTestRunner": [
-    {
-      "id": "jest",
-      "displayName": "Jest"
-    }
-  ],
-  "integrationTestRunner": {
-    "id": "protractor",
-    "displayName": "Protractor"
-  },
-  "paths": {
-    "root": "src",
-    "resources": "resources",
-    "elements": "resources/elements",
-    "attributes": "resources/attributes",
-    "valueConverters": "resources/value-converters",
-    "bindingBehaviors": "resources/binding-behaviors"
-  },
-  "testFramework": {
-    "id": "jasmine",
-    "displayName": "Jasmine"
-  }
+  "packageManager": "yarn"
 }

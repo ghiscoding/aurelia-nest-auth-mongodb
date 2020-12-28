@@ -1,5 +1,5 @@
 {
-  "name": "jest",
+  "name": "test",
   "description": "Runs Jest and reports the results.",
   "flags": [
     {

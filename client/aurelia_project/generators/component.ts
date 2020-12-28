@@ -7,43 +7,44 @@ var path = require('path');
 export default class ElementGenerator {
   constructor(private project: Project, private options: CLIOptions, private ui: UI) { }
 
-  execute() {
-    let self = this;
+  async execute() {
+    const name = await this.ui.ensureAnswer(
+      this.options.args[0],
+      'What would you like to call the component?'
+    );
 
-    return this.ui
-      .ensureAnswer(this.options.args[0], 'What would you like to call the component?')
-      .then(name => {
+    const subFolders = await this.ui.ensureAnswer(
+      this.options.args[1],
+      'What sub-folder would you like to add it to?\nIf it doesn\'t exist it will be created for you.\n\nDefault folder is the source folder (src).', "."
+    );
 
-        return self.ui.ensureAnswer(this.options.args[1], 'What sub-folder would you like to add it to?\nIf it doesn\'t exist it will be created for you.\n\nDefault folder is the source folder (src).', ".")
-          .then(subFolders => {
+    let fileName = this.project.makeFileName(name);
+    let className = this.project.makeClassName(name);
 
-            let fileName = this.project.makeFileName(name);
-            let className = this.project.makeClassName(name);
+    this.project.root.add(
+      ProjectItem.text(path.join(subFolders, fileName + '.ts'), this.generateJSSource(className)),
+      ProjectItem.text(path.join(subFolders, fileName + '.html'), this.generateHTMLSource(className))
+    );
 
-            self.project.root.add(
-              ProjectItem.text(path.join(subFolders, fileName + ".ts"), this.generateJSSource(className)),
-              ProjectItem.text(path.join(subFolders, fileName + ".html"), this.generateHTMLSource(className))
-            );
-
-            return this.project.commitChanges()
-              .then(() => this.ui.log(`Created ${name} in the '${path.join(self.project.root.name, subFolders)}' folder`));
-          });
-      });
+    await this.project.commitChanges();
+    await this.ui.log(`Created ${name} in the '${path.join(this.project.root.name, subFolders)}' folder`);
   }
 
   generateJSSource(className) {
-    return `export class ${className} {    
+    return `export class ${className} {
   message: string;
-  
+
   constructor() {
     this.message = 'Hello world';
   }
-}`
+}
+`
   }
 
   generateHTMLSource(className) {
     return `<template>
   <h1>\${message}</h1>
-</template>`
+</template>
+`
   }
 }

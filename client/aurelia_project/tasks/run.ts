@@ -1,58 +1,37 @@
-import {config} from './build';
-import configureEnvironment from './environment';
-import * as webpack from 'webpack';
-import * as Server from 'webpack-dev-server';
-import * as project from '../aurelia.json';
-import {CLIOptions, reportWebpackReadiness} from 'aurelia-cli';
-import * as gulp from 'gulp';
-import {buildWebpack} from './build';
+import { NPM } from 'aurelia-cli';
+import * as kill from 'tree-kill';
 
-function runWebpack(done) {
-  // https://webpack.github.io/docs/webpack-dev-server.html
-  let opts = {
-    host: 'localhost',
-    publicPath: config.output.publicPath,
-    filename: config.output.filename,
-    hot: project.platform.hmr || CLIOptions.hasFlag('hmr'),
-    port: project.platform.port,
-    contentBase: config.output.path,
-    historyApiFallback: true,
-    open: project.platform.open,
-    stats: {
-      colors: require('supports-color')
-    }
-  } as any;
+const npm =  new NPM();
 
-  if (!CLIOptions.hasFlag('watch')) {
-    opts.lazy = true;
-  }
-
-  if (project.platform.hmr || CLIOptions.hasFlag('hmr')) {
-    config.plugins.push(new webpack.HotModuleReplacementPlugin());
-    config.entry.app.unshift(`webpack-dev-server/client?http://${opts.host}:${opts.port}/`, 'webpack/hot/dev-server');
-  }
-
-  const compiler = webpack(config);
-  let server = new Server(compiler, opts);
-
-  server.listen(opts.port, opts.host, function(err) {
-    if (err) throw err;
-
-    if (opts.lazy) {
-      buildWebpack(() => {
-        reportWebpackReadiness(opts);
-        done();
-      });
-    } else {
-      reportWebpackReadiness(opts);
-      done();
-    }
-  });
+function run() {
+  console.log('`au run` is an alias of the `npm start`, you may use either of those; see README for more details.');
+  const args = process.argv.slice(3);
+  return npm.run('start', ['--', ... cleanArgs(args)]);
 }
 
-const run = gulp.series(
-  configureEnvironment,
-  runWebpack
-);
+// Cleanup --env prod to --env.production
+// for backwards compatibility
+function cleanArgs(args) {
+  const cleaned = [];
+  for (let i = 0, ii = args.length; i < ii; i++) {
+    if (args[i] === '--env' && i < ii - 1) {
+      const env = args[++i].toLowerCase();
+      if (env.startsWith('prod')) {
+        cleaned.push('--env.production');
+      } else if (env.startsWith('test')) {
+        cleaned.push('--tests');
+      }
+    } else {
+      cleaned.push(args[i]);
+    }
+  }
+  return cleaned;
+}
 
-export { run as default };
+const shutdownAppServer = () => {
+  if (npm && npm.proc) {
+    kill(npm.proc.pid);
+  }
+};
+
+export { run as default, shutdownAppServer };
