@@ -1,12 +1,13 @@
 import * as mongoose from 'mongoose';
+import { Schema } from 'mongoose';
 
-export const ProviderSchema = new mongoose.Schema({
+export const ProviderSchema = new Schema({
   providerId: String,
   name: String,
 });
 
-export const UserSchema = new mongoose.Schema({
-  _id: { type: mongoose.ObjectId },
+export const UserSchema = new Schema({
+  _id: { type: mongoose.Types.ObjectId },
   userId: { type: String, unique: true },
   password: String,
   email: { type: String, lowercase: true },

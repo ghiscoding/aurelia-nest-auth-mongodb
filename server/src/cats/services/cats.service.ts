@@ -31,7 +31,7 @@ export class CatsService {
     return result;
   }
 
-  async findOneById(id: number): Promise<User> {
+  async findOneById(id: number): Promise<Cat> {
     const cat = await this.catModel.findById(id).exec();
     if (!cat) {
       throw new NotFoundException('Could not find cat.');

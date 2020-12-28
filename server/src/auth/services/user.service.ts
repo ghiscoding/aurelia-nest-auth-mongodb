@@ -4,6 +4,7 @@ import { Model, Types } from 'mongoose';
 import { decode } from 'jsonwebtoken';
 
 import { User } from '../models/user.interface';
+import { UserSignupDto } from '../dto/userSignup.dto';
 
 @Injectable()
 export class UserService {
@@ -12,7 +13,7 @@ export class UserService {
     private readonly userModel: Model<User>,
   ) { }
 
-  async create(newUser: User): Promise<User> {
+  async create(newUser: User | UserSignupDto): Promise<User> {
     const objectId = Types.ObjectId();
     const roles = ['USER'];
     const userCount = await this.count();
