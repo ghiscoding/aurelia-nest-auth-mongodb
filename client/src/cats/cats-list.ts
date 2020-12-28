@@ -23,6 +23,9 @@ export class CatsList {
     ];
 
     this.gridOptions = {
+      autoResize: {
+        container: '.grid-container'
+      },
       enableFiltering: true,
       backendServiceApi: {
         service: new GraphqlService(),
