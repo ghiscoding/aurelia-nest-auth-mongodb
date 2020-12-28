@@ -1,5 +1,6 @@
 import { autoinject } from 'aurelia-framework';
-import { Column, Formatter, Formatters, GraphqlService, GridOption, Filters, MultipleSelectOption } from 'aurelia-slickgrid';
+import { Column, Formatter, Formatters, GridOption, Filters, MultipleSelectOption } from 'aurelia-slickgrid';
+import { GraphqlService, } from '@slickgrid-universal/graphql';
 
 import { User } from './user.interface';
 import { UsersDataService } from './users-data.service';
@@ -95,6 +96,10 @@ export class UsersList {
     ];
 
     this.gridOptions = {
+      autoResize: {
+        container: '.grid-container',
+        rightPadding: 10
+      },
       enableFiltering: true,
       backendServiceApi: {
         service: new GraphqlService(),

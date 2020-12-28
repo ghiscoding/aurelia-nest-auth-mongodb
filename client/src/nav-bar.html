@@ -1,15 +1,15 @@
 <template>
-  <nav class="navbar navbar-expand-md navbar-dark bg-dark mb-4">
+  <nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
     <a class="navbar-brand" href="#">${router.title}</a>
     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarContent"
-      aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
       <span class="navbar-toggler-icon"></span>
     </button>
 
     <div class="collapse navbar-collapse" id="navbarContent">
       <ul class="navbar-nav mr-auto">
         <li repeat.for="row of router.navigation | authFilter: isAuthenticated | adminFilter: isAdmin"
-          class="nav-item ${row.isActive ? 'active' : ''}">
+            class="nav-item ${row.isActive ? 'active' : ''}">
           <a class="nav-link" href.bind="row.href">${row.title}</a>
         </li>
       </ul>

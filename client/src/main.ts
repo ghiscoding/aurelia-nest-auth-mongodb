@@ -8,9 +8,9 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
 import 'flatpickr/dist/flatpickr.min.css';
-import 'aurelia-slickgrid/dist/lib/multiple-select/multiple-select.css';
-import 'aurelia-slickgrid/dist/lib/multiple-select/multiple-select.js';
-import 'aurelia-slickgrid/dist/styles/css/slickgrid-theme-bootstrap.css';
+import 'multiple-select-modified/src/multiple-select.css';
+import 'multiple-select-modified/src/multiple-select.js';
+import '@slickgrid-universal/common/dist/styles/css/slickgrid-theme-bootstrap.css';
 import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { GridOption } from 'aurelia-slickgrid';
@@ -35,14 +35,7 @@ export function configure(aurelia: Aurelia) {
     .feature(PLATFORM.moduleName('resources/index'));
 
   aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'));
-  aurelia.use.plugin(PLATFORM.moduleName('aurelia-slickgrid'), (config: { options: GridOption }) => {
-    // define a few global grid options
-    config.options.enableAutoResize = true;
-    config.options.autoResize = {
-      containerId: 'grid-container',
-      sidePadding: 15
-    };
-  });
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-slickgrid'));
 
   if (environment.debug) {
     aurelia.use.developmentLogging();

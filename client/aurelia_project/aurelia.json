@@ -1,5 +1,5 @@
 {
-  "name": "aurelia-slickgrid-bs4-demo",
+  "name": "aurelia-nest-mongo-graphql",
   "type": "project:application",
   "bundler": {
     "id": "webpack",

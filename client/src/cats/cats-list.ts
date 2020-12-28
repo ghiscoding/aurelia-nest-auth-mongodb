@@ -1,5 +1,6 @@
 import { autoinject } from 'aurelia-framework';
-import { Column, Formatters, GraphqlService, GraphqlServiceApi, GridOption } from 'aurelia-slickgrid';
+import { Column, Formatters, GridOption } from 'aurelia-slickgrid';
+import { GraphqlService, GraphqlServiceApi, } from '@slickgrid-universal/graphql';
 
 import { Cat } from './cat.interface';
 import { CatsDataService } from './cats-data.service';

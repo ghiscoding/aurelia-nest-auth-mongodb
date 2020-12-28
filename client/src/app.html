@@ -2,7 +2,7 @@
   <require from="./nav-bar"></require>
   <nav-bar router.bind="router"></nav-bar>
 
-  <div id="app-content-container" class="page-host mt-4">
+  <div class="container-fluid page-host">
     <loading-indicator loading.bind="router.isNavigating || httpProcessing"></loading-indicator>
     <router-view></router-view>
   </div>

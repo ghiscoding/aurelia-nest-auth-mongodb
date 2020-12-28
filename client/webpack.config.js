@@ -7,7 +7,7 @@ const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
-const { CleanWebpackPlugin } = require('clean-webpack-plugin'); // installed via npm
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 // config helpers:
 const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
@@ -93,7 +93,7 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
           chunks: 'async',
           priority: 9,
           reuseExistingChunk: true,
-          minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
+          minSize: 20000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
         },
         commonsAsync: { // commons async chunk, remaining asynchronously used modules as single chunk file
           name: 'commons.async',
@@ -101,7 +101,7 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
           chunks: 'async',
           priority: 0,
           reuseExistingChunk: true,
-          minSize: 10000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
+          minSize: 20000  // use smaller minSize to avoid too much potential bundle bloat due to module duplication.
         }
       }
     }
@@ -113,7 +113,8 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
     historyApiFallback: true,
     hot: hmr || project.platform.hmr,
     port: port || project.platform.port,
-    host: host || project.platform.host
+    host: host || project.platform.host,
+    open: project.platform.open,
   },
   devtool: production ? 'nosources-source-map' : 'cheap-module-eval-source-map',
   module: {
@@ -148,6 +149,8 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
       },
       { test: /\.html$/i, loader: 'html-loader' },
       { test: /\.ts$/, loader: "ts-loader" },
+      // exposes jQuery globally as $ and as jQuery:
+      // { test: require.resolve('jquery'), loader: 'expose-loader?$!expose-loader?jQuery' },
       // embed small images and fonts as Data Urls and larger ones as files:
       { test: /\.(png|gif|jpg|cur)$/i, loader: 'url-loader', options: { limit: 8192 } },
       { test: /\.woff2(\?v=[0-9]\.[0-9]\.[0-9])?$/i, loader: 'url-loader', options: { limit: 10000, mimetype: 'application/font-woff2' } },
@@ -175,7 +178,6 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
       'jQuery': 'jquery',
       'window.jQuery': 'jquery',
       'window.$': 'jquery',
-      'Promise': ['promise-polyfill', 'default']
     }),
     new ModuleDependenciesPlugin({
       'aurelia-testing': ['./compile-spy', './view-spy']
@@ -192,14 +194,12 @@ module.exports = ({ production } = {}, { extractCss, analyze, tests, hmr, port, 
       filename: production ? '[name].[contenthash].bundle.css' : '[name].[hash].bundle.css',
       chunkFilename: production ? '[name].[contenthash].chunk.css' : '[name].[hash].chunk.css'
     })),
-    ...when(!tests, new CopyWebpackPlugin({
+    new CopyWebpackPlugin({
       patterns: [
-        { from: 'static', to: outDir },
-        { from: 'favicon.ico', to: 'favicon.ico' },
-        // { from: 'assets', to: 'assets' }
+        { from: `${srcDir}/favicon.ico`, to: 'favicon.ico' },
+        { from: 'assets', to: 'assets' }
       ]
-    })),
-
+    }),
     ...when(analyze, new BundleAnalyzerPlugin()),
     /**
      * Note that the usage of following plugin cleans the webpack output directory before build.
