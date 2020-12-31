@@ -35,7 +35,10 @@ export function configure(aurelia: Aurelia) {
     .feature(PLATFORM.moduleName('resources/index'));
 
   aurelia.use.plugin(PLATFORM.moduleName('aurelia-validation'));
-  aurelia.use.plugin(PLATFORM.moduleName('aurelia-slickgrid'));
+  aurelia.use.plugin(PLATFORM.moduleName('aurelia-slickgrid'), (config: { options: GridOption }) => {
+    // define a few global grid options
+    // config.options.gridMenu.iconCssClass = 'fa fa-ellipsis-v'
+  });
 
   if (environment.debug) {
     aurelia.use.developmentLogging();
