@@ -27,7 +27,7 @@ export class UsersResolver {
 
   @Query(() => User)
   @UseGuards(GraphqlPassportAuthGuard)
-  whoAmI(@CurrentUser() user: User) {
+  whoAmI(@CurrentUser() user: User): User {
     return user;
   }
 }

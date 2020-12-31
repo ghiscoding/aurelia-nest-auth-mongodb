@@ -1,6 +1,5 @@
-import { Args, Query, Resolver, Mutation, ResolveProperty, Parent } from '@nestjs/graphql';
+import { Args, Int, Query, Resolver, Mutation, ResolveProperty, Parent } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
-import { Int } from '@nestjs/graphql';
 
 import { CatsService } from './services/cats.service';
 import { Cat } from './graphql/types/cat.type';
@@ -13,40 +12,40 @@ import { OwnersService } from './services/owners.service';
 import { CatQueryArgs } from './graphql/inputs/catQueryArgs.input';
 
 @Resolver('Cat')
-@Resolver(of => Cat)
+@Resolver(_of => Cat)
 export class CatsResolver {
   constructor(
     private readonly catsService: CatsService,
     private readonly ownersService: OwnersService,
   ) { }
 
-  @Query(returns => String)
-  async hello() {
+  @Query(_returns => String)
+  async hello(): Promise<string> {
     return 'kitty';
   }
 
-  @Query(returns => Cat)
-  async author(@Args({ name: 'id', type: () => Int }) id: number) {
+  @Query(_returns => Cat)
+  async author(@Args({ name: 'id', type: () => Int }) id: number): Promise<Cat> {
     return await this.catsService.findOneById(id);
   }
 
-  @Query(returns => [Cat])
+  @Query(_returns => [Cat])
   @UseGuards(GraphqlPassportAuthGuard)
   async cats(@Args() queryArgs: CatQueryArgs): Promise<any> {
     return this.catsService.query(queryArgs);
   }
 
   @ResolveProperty('owner')
-  async owner(@Parent() cat) {
+  async owner(@Parent() cat): Promise<any> {
     const { ownerId } = cat;
     return await this.ownersService.findByUserId(ownerId);
   }
 
   @Roles('user')
   @UseGuards(new GraphqlPassportAuthGuard('USER'))
-  @Mutation(() => Cat)
+  @Mutation(_returns => Cat)
   @UseGuards(GraphqlPassportAuthGuard)
-  async createCat(@Args('input') input: CatInput, @CurrentUser() currentUser: User) {
+  async createCat(@Args('input') input: CatInput, @CurrentUser() currentUser: User): Promise<Cat> {
     return this.catsService.create(input, currentUser);
   }
 }

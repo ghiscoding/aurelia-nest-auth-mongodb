@@ -1,5 +1,6 @@
 import { Module } from '@nestjs/common';
 import { GraphQLModule } from '@nestjs/graphql';
+import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
@@ -17,6 +18,11 @@ import { CommonModule } from './shared/common.module';
     AuthModule,
     CatsModule,
     // CommonModule,
+    ConfigModule.forRoot({
+      isGlobal: true,
+      envFilePath: process.env.NODE_DEV === 'dev' ? '.env.dev' : '.env.prod',
+      ignoreEnvFile: process.env.NODE_DEV === 'prod'
+    }),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       debug: true,

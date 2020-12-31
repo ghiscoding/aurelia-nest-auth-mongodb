@@ -13,8 +13,8 @@ import { getFilterByQuery } from '../shared/graphql/utils/utilities';
 export class UsersService {
   constructor(@InjectModel('User') private readonly userModel: Model<User>) { }
 
-  stringToBase64 = (data) => Buffer.from(data).toString('base64');
-  base64ToString = (data) => Buffer.from(data, 'base64').toString('ascii');
+  stringToBase64 = (data: any): string => Buffer.from(data).toString('base64');
+  base64ToString = (data: any): string => Buffer.from(data, 'base64').toString('ascii');
 
   async findAll(): Promise<User[]> {
     return await this.userModel.find().exec();
