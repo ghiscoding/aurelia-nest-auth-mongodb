@@ -17,8 +17,8 @@ import { CommonModule } from './shared/common.module';
     // CommonModule,
     ConfigModule.forRoot({
       isGlobal: true,
-      envFilePath: process.env.NODE_DEV === 'dev' ? '.env.dev' : '.env.prod',
-      // ignoreEnvFile: process.env.NODE_DEV === 'prod'
+      envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.prod',
+      // ignoreEnvFile: process.env.NODE_ENV === 'prod'
     }),
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
