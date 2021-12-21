@@ -23,7 +23,6 @@ import { CommonModule } from './shared/common.module';
     GraphQLModule.forRoot({
       autoSchemaFile: 'schema.gql',
       debug: true,
-      playground: true,
       context: ({ req }) => ({ req }),
     }),
     MongooseModule.forRoot('mongodb://localhost:27017/nest'),
