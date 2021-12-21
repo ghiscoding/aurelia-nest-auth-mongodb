@@ -14,7 +14,7 @@ export class UserService {
   ) { }
 
   async create(newUser: User | UserSignupDto): Promise<User> {
-    const objectId = Types.ObjectId();
+    const objectId = Types.ObjectId;
     const roles = ['USER'];
     const userCount = await this.count();
     if (userCount === 0) {
