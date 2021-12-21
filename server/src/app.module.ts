@@ -26,12 +26,7 @@ import { CommonModule } from './shared/common.module';
       playground: true,
       context: ({ req }) => ({ req }),
     }),
-    MongooseModule.forRoot('mongodb://localhost/nest', {
-      useCreateIndex: true,
-      useNewUrlParser: true,
-      useUnifiedTopology: true,
-      useFindAndModify: false,
-    }),
+    MongooseModule.forRoot('mongodb://localhost:27017/nest'),
     UsersModule,
   ],
   controllers: [AppController],
