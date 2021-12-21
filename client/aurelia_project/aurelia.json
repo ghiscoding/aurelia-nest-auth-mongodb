@@ -21,11 +21,15 @@
     }
   },
   "platform": {
+    "compress": true,
+    "liveReload": true,
+    "historyApiFallback": true,
     "hmr": false,
     "open": true,
     "port": 9000,
     "host": "localhost",
-    "output": "dist"
+    "output": "dist",
+    "outputProd": "dist"
   },
   "packageManager": "yarn"
 }
