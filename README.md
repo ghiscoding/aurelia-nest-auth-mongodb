@@ -1,6 +1,9 @@
 # Aurelia / NestJS / MongoDB / GraphQL and OAuth
 Full stack boilerplate with Aurelia, NestJS, GraphQL, MongoDB and OAuth login.
 
+### Open for Contributions
+Totally open for any Pull Request, please feel free to contribute in any ways, even npm package update PRs are welcome.👷👷‍♀️
+
 ## Client TypeScript Webpack
 
 ### Client installation
@@ -54,7 +57,7 @@ MIT
 
 ## Getting started
 
-Before you start, make sure you have a recent version of [NodeJS](http://nodejs.org/) environment *>=10.0* with NPM 6 or Yarn.
+Before you start, make sure you have a recent version of [NodeJS](http://nodejs.org/) environment *>=14.0* with NPM 6 or Yarn.
 
 From the project folder, execute the following commands:
 
