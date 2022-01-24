@@ -8,7 +8,6 @@ import 'font-awesome/css/font-awesome.css';
 import 'flatpickr/dist/flatpickr.min.css';
 import 'multiple-select-modified/src/multiple-select.css';
 import 'multiple-select-modified/src/multiple-select.js';
-import '@slickgrid-universal/common/dist/styles/css/slickgrid-theme-bootstrap.css';
 import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { GridOption } from 'aurelia-slickgrid';
