@@ -52,8 +52,8 @@ export class AuthService {
   }
 
   async login(user: User): Promise<{ token: string }> {
-    const { email, displayName, userId } = user;
-    return { token: this.jwtService.sign({ email, displayName, userId }) };
+    const { email, displayName, userId, roles } = user;
+    return { token: this.jwtService.sign({ email, displayName, userId, roles }) };
   }
 
   async signup(signupUser: UserSignupDto): Promise<{ token: string }> {
