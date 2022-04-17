@@ -1,11 +1,11 @@
-import { Body, Controller, Get, Param, Res, Req, Request, Post, Query, UseGuards } from '@nestjs/common';
+import { Body, Controller, Get, Param, Res, Req, Request, Post, UseGuards } from '@nestjs/common';
 import { AuthGuard } from '@nestjs/passport';
 import { ApiTags, ApiBearerAuth, ApiOperation } from '@nestjs/swagger';
 
 import authConfig from './auth-config.development';
 import { AuthService } from './services/auth.service';
 import { UserService } from './services/user.service';
-import { TokenDto, UsernameDto, UserSignupDto } from './dto';
+import { TokenDto, UsernameDto, UserLoginDto, UserSignupDto } from './dto';
 
 @ApiTags('Authorization API')
 @ApiBearerAuth()
@@ -137,7 +137,7 @@ export class AuthController {
   @ApiOperation({ summary: 'Login Current User' })
   @UseGuards(AuthGuard('local'))
   @Post('login')
-  async login(@Request() req) {
+  async login(@Request() req, @Body() userLoginDto: UserLoginDto) {
     return await this.authService.login(req.user);
   }
 
