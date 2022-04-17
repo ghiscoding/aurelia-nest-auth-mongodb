@@ -10,7 +10,7 @@ export const UserSchema = new Schema({
   _id: { type: mongoose.Types.ObjectId },
   userId: { type: String, unique: true },
   password: String,
-  email: { type: String, lowercase: true },
+  email: { type: String, lowercase: true, unique: true },
   displayName: String,
   provider: String,
   providers: [ProviderSchema],

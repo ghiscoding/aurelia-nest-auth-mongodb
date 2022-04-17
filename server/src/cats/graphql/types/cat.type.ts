@@ -1,15 +1,17 @@
 import { ObjectType, Field, Int, ID } from '@nestjs/graphql';
+import { Schema } from '@nestjs/mongoose';
 import { Owner } from './owner.type';
 
 @ObjectType()
+@Schema()
 export class Cat {
-  @Field(() => ID)
+  @Field(type => ID)
   id: string;
 
   @Field()
   readonly name: string;
 
-  @Field(() => Int)
+  @Field(type => Int)
   readonly age: number;
 
   @Field()

@@ -21,7 +21,7 @@ export class UsersService {
   }
 
   async getUsers(userQueryArgs: UserQueryArgs): Promise<{ totalCount: number, nodes: User[], pageInfo?: { hasNextPage: boolean; endCursor: string; } }> {
-    const { first, offset, filterBy, orderBy, cursor } = userQueryArgs;
+    const { first = 1, offset = 0, filterBy, orderBy, cursor } = userQueryArgs;
 
     const findQuery = getFilterByQuery(filterBy) || {};
     if (cursor) {
@@ -39,6 +39,7 @@ export class UsersService {
     const query = schema.toConstructor();
     const totalCount = await schema.countDocuments().exec();
     let nodes = await new query().skip(offset).limit(first + 1).exec(); // add +1 to check if we have next page
+
     // let nodes = await query().limit(first + 1).exec(); // with cursor
     const hasNextPage = nodes.length > first;
     if (hasNextPage) {

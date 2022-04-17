@@ -1,7 +1,7 @@
 import { Injectable, UseGuards, NotFoundException } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { AuthGuard } from '@nestjs/passport';
-import { Model } from 'mongoose';
+import { Model, Schema as MongooseSchema } from 'mongoose';
 
 import { Cat } from '../models/cat.interface';
 import { CatInput } from '../graphql/inputs/cat-input';
@@ -26,12 +26,10 @@ export class CatsService {
       queryArgs.orderBy.forEach(sorter => sort.push([sorter.field, sorter.direction]));
       modelFind = modelFind.sort(sort);
     }
-    const result = await modelFind.exec();
-    console.log('result', result);
-    return result;
+    return await modelFind.exec();
   }
 
-  async findOneById(id: number): Promise<Cat> {
+  async findOneById(id: MongooseSchema.Types.ObjectId): Promise<Cat> {
     const cat = await this.catModel.findById(id).exec();
     if (!cat) {
       throw new NotFoundException('Could not find cat.');

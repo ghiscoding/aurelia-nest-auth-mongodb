@@ -1,4 +1,4 @@
-import { Args, Query, Resolver } from '@nestjs/graphql';
+import { Args, Int, Query, Resolver } from '@nestjs/graphql';
 import { UseGuards } from '@nestjs/common';
 
 import { UsersService } from './users.service';
@@ -21,8 +21,8 @@ export class UsersResolver {
   @Query(returns => PaginatedUserResponse)
   @Roles('admin')
   @UseGuards(new GraphqlPassportAuthGuard('ADMIN'))
-  async users(@Args() queryArgs: UserQueryArgs): Promise<PaginatedUserResponse> {
-    return await this.usersService.getUsers(queryArgs);
+  async users(@Args() args: UserQueryArgs): Promise<PaginatedUserResponse> {
+    return await this.usersService.getUsers(args);
   }
 
   @Query(() => User)

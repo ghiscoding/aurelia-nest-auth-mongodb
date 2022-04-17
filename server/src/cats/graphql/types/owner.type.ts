@@ -1,8 +1,10 @@
 import { ObjectType, Field, ID } from '@nestjs/graphql';
+import { Schema } from '@nestjs/mongoose';
 
 @ObjectType()
+@Schema()
 export class Owner {
-  @Field(() => ID)
+  @Field(type => ID)
   id: string;
 
   @Field()

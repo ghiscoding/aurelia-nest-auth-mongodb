@@ -17,6 +17,7 @@ const authConfig = {
     },
     google: {
       // https://console.developers.google.com/
+      // OR https://console.cloud.google.com/
       clientID: 'Google Client Id',
       clientSecret: 'Google Client Secret',
       callbackURL: 'http://localhost:3000/auth/google/callback',

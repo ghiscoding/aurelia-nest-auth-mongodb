@@ -1,4 +1,5 @@
 import { Module } from '@nestjs/common';
+import { ApolloDriver, ApolloDriverConfig } from '@nestjs/apollo';
 import { GraphQLModule } from '@nestjs/graphql';
 import { ConfigModule } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
@@ -20,7 +21,8 @@ import { CommonModule } from './shared/common.module';
       envFilePath: process.env.NODE_ENV === 'dev' ? '.env.dev' : '.env.prod',
       // ignoreEnvFile: process.env.NODE_ENV === 'prod'
     }),
-    GraphQLModule.forRoot({
+    GraphQLModule.forRoot<ApolloDriverConfig>({
+      driver: ApolloDriver,
       autoSchemaFile: 'schema.gql',
       debug: true,
       context: ({ req }) => ({ req }),
