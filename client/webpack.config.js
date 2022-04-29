@@ -2,7 +2,6 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
-const DuplicatePackageCheckerPlugin = require('duplicate-package-checker-webpack-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
@@ -90,7 +89,6 @@ module.exports = ({ production } = {}, { analyze, server, tests } = {}) => ({
     ]
   },
   plugins: [
-    ...when(!tests, new DuplicatePackageCheckerPlugin()),
     new AureliaPlugin({
       // dist: 'es2015',
       // aureliaApp: 'main',

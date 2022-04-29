@@ -688,7 +688,7 @@
   dependencies:
     dompurify "^2.3.6"
 
-"@slickgrid-universal/common@^1.2.1", "@slickgrid-universal/common@^1.2.6":
+"@slickgrid-universal/common@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/common/-/common-1.2.6.tgz#df92aa60ab19ad379f8c2657935a1a0fc9641e88"
   integrity sha512-Hn9+/78Tk9eoj9O9GFYCry8Nc6ptK8FoFAUdf2PgMjYUJqhUlwuWgILAZWBtATDaDOQ9/Kws0SPYVq0xN7/LMQ==
@@ -703,7 +703,7 @@
     slickgrid "^2.4.44"
     un-flatten-tree "^2.0.12"
 
-"@slickgrid-universal/custom-footer-component@^1.2.1":
+"@slickgrid-universal/custom-footer-component@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/custom-footer-component/-/custom-footer-component-1.2.6.tgz#e931e5a36532cb5308132f55b758fc70c356875a"
   integrity sha512-snMhCw8BtCn0LCh5iElhK74NG5w9kRZ5xGJ3u2SauXgkQRvnY2PhfACYOhMdLIrMVHrUFAfWWM3kz64sxHqjNQ==
@@ -711,14 +711,14 @@
     "@slickgrid-universal/binding" "^1.2.6"
     "@slickgrid-universal/common" "^1.2.6"
 
-"@slickgrid-universal/empty-warning-component@^1.2.1":
+"@slickgrid-universal/empty-warning-component@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/empty-warning-component/-/empty-warning-component-1.2.6.tgz#998d34b53bcc62a7b22e215efeaf800c7b6489f1"
   integrity sha512-t/BCYBPv0RLZD/WrECzIWKq73asFZEhk4hByOQQ6hFx9SaGCza2v39/2QMOfxAnZZY2T15GlNHqPdF9A3VyufA==
   dependencies:
     "@slickgrid-universal/common" "^1.2.6"
 
-"@slickgrid-universal/event-pub-sub@^1.2.1":
+"@slickgrid-universal/event-pub-sub@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/event-pub-sub/-/event-pub-sub-1.2.6.tgz#dd1ed22746d688e24ff2abb10bb3843082e499e6"
   integrity sha512-yCCmmQ/NkRft3AAzlBZ6+mcfZoavfxJOP1JmK53wCE5kuNrZ/Nk9csPrrneWq6MzdsP2bxgtb/L0AiaZQ5o4sg==
@@ -732,7 +732,7 @@
   dependencies:
     "@slickgrid-universal/common" "^1.2.6"
 
-"@slickgrid-universal/pagination-component@^1.2.1":
+"@slickgrid-universal/pagination-component@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/pagination-component/-/pagination-component-1.2.6.tgz#16f02d4ce6d702ebf0995d5a73e3237a9cb62702"
   integrity sha512-Z+zG0jTDP9ZxblC/zkPhVejz4BChz9cRMlPTZNZYKdXbjj5Itd4O+RoJCcPdFpMsY+URXUNVkgWXPHBam8yGpQ==
@@ -740,7 +740,7 @@
     "@slickgrid-universal/binding" "^1.2.6"
     "@slickgrid-universal/common" "^1.2.6"
 
-"@slickgrid-universal/row-detail-view-plugin@^1.2.1":
+"@slickgrid-universal/row-detail-view-plugin@^1.2.6":
   version "1.2.6"
   resolved "https://registry.yarnpkg.com/@slickgrid-universal/row-detail-view-plugin/-/row-detail-view-plugin-1.2.6.tgz#6e40d210e0bd5454de5cbfffd4331e74754423f1"
   integrity sha512-5NgZMJ/uiF8LZCAjArfWvyTtoE2GJ6+J9Rztpz6CJnJIRgV3Rn5oWcOta4q76c1ezF2WCGW3ZJqjQwtO5+KdUA==
@@ -964,10 +964,10 @@
   resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.24.tgz#20ba1bf69c1b4ab405c7a01e950c4f446b05029f"
   integrity sha512-aveCYRQbgTH9Pssp1voEP7HiuWlD2jW2BO56w+bVrJn04i61yh6mRfoKO6hEYQD9vF+W8Chkwc6j1M36uPkx4g==
 
-"@types/node@^17.0.25":
-  version "17.0.25"
-  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.25.tgz#527051f3c2f77aa52e5dc74e45a3da5fb2301448"
-  integrity sha512-wANk6fBrUwdpY4isjWrKTufkrXdu1D2YHCot2fD/DfWxF5sMrVSA+KN7ydckvaTCh0HiqX9IVl0L5/ZoXg5M7w==
+"@types/node@^17.0.30":
+  version "17.0.30"
+  resolved "https://registry.yarnpkg.com/@types/node/-/node-17.0.30.tgz#2c6e8512acac70815e8176aa30c38025067880ef"
+  integrity sha512-oNBIZjIqyHYP8VCNAV9uEytXVeXG2oR0w9lgAXro20eugRQfY002qr3CUl6BAe+Yf/z3CRjPdz27Pu6WWtuSRw==
 
 "@types/parse-json@^4.0.0":
   version "4.0.0"
@@ -1767,7 +1767,7 @@ aurelia-fetch-client@^1.8.2:
   dependencies:
     aurelia-pal "^1.3.0"
 
-aurelia-framework@^1.0.0, aurelia-framework@^1.3.1, aurelia-framework@^1.4.1:
+aurelia-framework@^1.0.0, aurelia-framework@^1.4.1:
   version "1.4.1"
   resolved "https://registry.yarnpkg.com/aurelia-framework/-/aurelia-framework-1.4.1.tgz#76a76dfa555e3315daab4256c776434fb7932f43"
   integrity sha512-oFnJyqqIDk2Kk7iSy2YNm2MNQMbTVEiPpa9q0oGfDLclqUgv+L05rnkEW9vEpVTUMV8gmOTxIrDidNICrDT7HA==
@@ -1931,25 +1931,24 @@ aurelia-router@^1.7.1:
     aurelia-path "^1.0.0"
     aurelia-route-recognizer "^1.3.2"
 
-aurelia-slickgrid@^4.1.1:
-  version "4.1.1"
-  resolved "https://registry.yarnpkg.com/aurelia-slickgrid/-/aurelia-slickgrid-4.1.1.tgz#697cb8c7516c4710708d758227768b5669385bf7"
-  integrity sha512-q2Vx6ynpphN+rjzoQvx1nqusK30h8iBWaD6JeQ6M7NQMtNtsWNfAG5Tu4B6mbilZn4k9uRA8YjL04yiS4sF0Bg==
+aurelia-slickgrid@^4.1.3:
+  version "4.1.3"
+  resolved "https://registry.yarnpkg.com/aurelia-slickgrid/-/aurelia-slickgrid-4.1.3.tgz#40249b561abb49ed595ecece3f69fcceaa226f22"
+  integrity sha512-y4f5x8wFVaAREQ/X42kG7D4hfqauxUkK+SeYFczqWUF1g/5q4THmrgnOhbywRkTsCR+mgyQEaGlVCJE6i++eGg==
   dependencies:
-    "@slickgrid-universal/common" "^1.2.1"
-    "@slickgrid-universal/custom-footer-component" "^1.2.1"
-    "@slickgrid-universal/empty-warning-component" "^1.2.1"
-    "@slickgrid-universal/event-pub-sub" "^1.2.1"
-    "@slickgrid-universal/pagination-component" "^1.2.1"
-    "@slickgrid-universal/row-detail-view-plugin" "^1.2.1"
+    "@slickgrid-universal/common" "^1.2.6"
+    "@slickgrid-universal/custom-footer-component" "^1.2.6"
+    "@slickgrid-universal/empty-warning-component" "^1.2.6"
+    "@slickgrid-universal/event-pub-sub" "^1.2.6"
+    "@slickgrid-universal/pagination-component" "^1.2.6"
+    "@slickgrid-universal/row-detail-view-plugin" "^1.2.6"
     aurelia-event-aggregator "^1.0.3"
-    aurelia-framework "^1.3.1"
+    aurelia-framework "^1.4.1"
     aurelia-i18n "^3.1.4"
     aurelia-pal "^1.8.2"
-    aurelia-templating-resources "^1.13.1"
-    dompurify "^2.3.4"
+    dompurify "^2.3.6"
     jquery "~3.5.1"
-    typescript ">=4.4.4"
+    typescript ">=4.6.4"
 
 aurelia-task-queue@^1.0.0, aurelia-task-queue@^1.1.0, aurelia-task-queue@^1.3.1:
   version "1.3.3"
@@ -1967,10 +1966,10 @@ aurelia-templating-binding@^1.6.0:
     aurelia-logging "^1.0.0"
     aurelia-templating "^1.11.1"
 
-aurelia-templating-resources@^1.13.1, aurelia-templating-resources@^1.7.1:
-  version "1.14.1"
-  resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.14.1.tgz#483862e02d0716ec98c36f004d00a15eae20a365"
-  integrity sha512-pt1RJHKAY9U81XeuNk+PVXo492UZoMA7lebpq60yI+hQRhA2lCcKu/9xA+NmMVNaVnMXXZvv+WL/unH/2S58sQ==
+aurelia-templating-resources@^1.14.1:
+  version "1.14.3"
+  resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.14.3.tgz#5ddc54dca42ec3ec5e8be95183d8348da2cd26b0"
+  integrity sha512-8JbBSUC0PWg8/MQ3cui5JUnIrJs30iD4QM6C1g1cv5Uv17yLMnDdaRQd1TIDN1S4kAIUjubkV2M8IaYP0BY+2Q==
   dependencies:
     aurelia-binding "^2.0.0"
     aurelia-dependency-injection "^1.0.0"
@@ -1982,10 +1981,10 @@ aurelia-templating-resources@^1.13.1, aurelia-templating-resources@^1.7.1:
     aurelia-task-queue "^1.0.0"
     aurelia-templating "^1.11.1"
 
-aurelia-templating-resources@^1.14.1:
-  version "1.14.3"
-  resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.14.3.tgz#5ddc54dca42ec3ec5e8be95183d8348da2cd26b0"
-  integrity sha512-8JbBSUC0PWg8/MQ3cui5JUnIrJs30iD4QM6C1g1cv5Uv17yLMnDdaRQd1TIDN1S4kAIUjubkV2M8IaYP0BY+2Q==
+aurelia-templating-resources@^1.7.1:
+  version "1.14.1"
+  resolved "https://registry.yarnpkg.com/aurelia-templating-resources/-/aurelia-templating-resources-1.14.1.tgz#483862e02d0716ec98c36f004d00a15eae20a365"
+  integrity sha512-pt1RJHKAY9U81XeuNk+PVXo492UZoMA7lebpq60yI+hQRhA2lCcKu/9xA+NmMVNaVnMXXZvv+WL/unH/2S58sQ==
   dependencies:
     aurelia-binding "^2.0.0"
     aurelia-dependency-injection "^1.0.0"
@@ -2662,7 +2661,7 @@ chalk@^1.1.1, chalk@^1.1.3:
     strip-ansi "^3.0.0"
     supports-color "^2.0.0"
 
-chalk@^2.0.0, chalk@^2.3.0:
+chalk@^2.0.0:
   version "2.4.2"
   resolved "https://registry.yarnpkg.com/chalk/-/chalk-2.4.2.tgz#cd42541677a54333cf541a49108c1432b44c9424"
   integrity sha512-Mti+f9lpJNcwF4tWV8/OrTTtF1gZi+f8FqlyAdouralcFWFQWF2+NgCHShjkCb+IFBLq9buZwE1xckQU4peSuQ==
@@ -3496,7 +3495,7 @@ domhandler@^4.0.0, domhandler@^4.2.0, domhandler@^4.3.1:
   dependencies:
     domelementtype "^2.2.0"
 
-dompurify@^2.3.4, dompurify@^2.3.6:
+dompurify@^2.3.6:
   version "2.3.6"
   resolved "https://registry.yarnpkg.com/dompurify/-/dompurify-2.3.6.tgz#2e019d7d7617aacac07cbbe3d88ae3ad354cf875"
   integrity sha512-OFP2u/3T1R5CEgWCEONuJ1a5+MFKnOYpkywpUSxv/dj1LeBT1erK+JwM7zK0ROy2BRhqVCf0LRw/kHqKuMkVGg==
@@ -3532,16 +3531,6 @@ duplexify@^3.6.0:
     inherits "^2.0.1"
     readable-stream "^2.0.0"
     stream-shift "^1.0.0"
-
-duplicate-package-checker-webpack-plugin@^3.0.0:
-  version "3.0.0"
-  resolved "https://registry.yarnpkg.com/duplicate-package-checker-webpack-plugin/-/duplicate-package-checker-webpack-plugin-3.0.0.tgz#78bb89e625fa7cf8c2a59c53f62b495fda9ba287"
-  integrity sha512-aO50/qPC7X2ChjRFniRiscxBLT/K01bALqfcDaf8Ih5OqQ1N4iT/Abx9Ofu3/ms446vHTm46FACIuJUmgUQcDQ==
-  dependencies:
-    chalk "^2.3.0"
-    find-root "^1.0.0"
-    lodash "^4.17.4"
-    semver "^5.4.1"
 
 each-props@^1.3.2:
   version "1.3.2"
@@ -4096,11 +4085,6 @@ find-cache-dir@^2.0.0:
     commondir "^1.0.1"
     make-dir "^2.0.0"
     pkg-dir "^3.0.0"
-
-find-root@^1.0.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/find-root/-/find-root-1.1.0.tgz#abcfc8ba76f708c42a97b3d685b7e9450bfb9ce4"
-  integrity sha512-NKfW6bec6GfKc0SGx1e07QZY9PE99u0Bft/0rzSD5k3sO/vwkVUpDUKVm5Gpp5Ue3YfShPFTX2070tDs5kB9Ng==
 
 find-up@^1.0.0:
   version "1.1.2"
@@ -7849,10 +7833,10 @@ sass-loader@^12.6.0:
     klona "^2.0.4"
     neo-async "^2.6.2"
 
-sass@^1.50.1:
-  version "1.50.1"
-  resolved "https://registry.yarnpkg.com/sass/-/sass-1.50.1.tgz#e9b078a1748863013c4712d2466ce8ca4e4ed292"
-  integrity sha512-noTnY41KnlW2A9P8sdwESpDmo+KBNkukI1i8+hOK3footBUcohNHtdOJbckp46XO95nuvcHDDZ+4tmOnpK3hjw==
+sass@^1.51.0:
+  version "1.51.0"
+  resolved "https://registry.yarnpkg.com/sass/-/sass-1.51.0.tgz#25ea36cf819581fe1fe8329e8c3a4eaaf70d2845"
+  integrity sha512-haGdpTgywJTvHC2b91GSq+clTKGbtkkZmVAb82jZQN/wTy6qs8DdFm2lhEQbEwrY0QDRgSQ3xDurqM977C3noA==
   dependencies:
     chokidar ">=3.0.0 <4.0.0"
     immutable "^4.0.0"
@@ -7939,7 +7923,7 @@ semver-greatest-satisfied-range@^1.1.0:
   dependencies:
     sver-compat "^1.5.0"
 
-"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.4.1, semver@^5.6.0:
+"semver@2 || 3 || 4 || 5", semver@^5.3.0, semver@^5.6.0:
   version "5.7.1"
   resolved "https://registry.yarnpkg.com/semver/-/semver-5.7.1.tgz#a954f931aeba508d307bbf069eff0c01c96116f7"
   integrity sha512-sauaDf/PZdVgrLTNYHRtpXa1iRiKcaebiKQ1BJdpQlWH2lCvexQdX55snPFyK7QzpudqbCI0qXFfOasHdyNDGQ==
@@ -8732,10 +8716,10 @@ ts-jest@^27.1.4:
     semver "7.x"
     yargs-parser "20.x"
 
-ts-loader@^9.2.8:
-  version "9.2.8"
-  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.8.tgz#e89aa32fa829c5cad0a1d023d6b3adecd51d5a48"
-  integrity sha512-gxSak7IHUuRtwKf3FIPSW1VpZcqF9+MBrHOvBp9cjHh+525SjtCIJKVGjRKIAfxBwDGDGCFF00rTfzB1quxdSw==
+ts-loader@^9.2.9:
+  version "9.2.9"
+  resolved "https://registry.yarnpkg.com/ts-loader/-/ts-loader-9.2.9.tgz#0653e07fa1b4f225d0ca57a84fddbfd43d930f9e"
+  integrity sha512-b0+vUY2/enb0qYtDQuNlDnJ9900NTiPiJcDJ6sY7ax1CCCwXfYIqPOMm/BwW7jsF1km+Oz8W9s31HLuD+FLIMg==
   dependencies:
     chalk "^4.1.0"
     enhanced-resolve "^5.0.0"
@@ -8830,7 +8814,12 @@ typedarray@^0.0.6:
   resolved "https://registry.yarnpkg.com/typedarray/-/typedarray-0.0.6.tgz#867ac74e3864187b1d3d47d996a78ec5c8830777"
   integrity sha1-hnrHTjhkGHsdPUfZlqeOxciDB3c=
 
-typescript@>=4.4.4, typescript@^4.2.4, typescript@^4.6.3:
+typescript@>=4.6.4, typescript@^4.6.4:
+  version "4.6.4"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.4.tgz#caa78bbc3a59e6a5c510d35703f6a09877ce45e9"
+  integrity sha512-9ia/jWHIEbo49HfjrLGfKbZSuWo9iTMwXO+Ca3pRsSpbsMbc7/IU8NKdCZVRRBafVPGnoJeFL76ZOAA84I9fEg==
+
+typescript@^4.2.4:
   version "4.6.3"
   resolved "https://registry.yarnpkg.com/typescript/-/typescript-4.6.3.tgz#eefeafa6afdd31d725584c67a0eaba80f6fc6c6c"
   integrity sha512-yNIatDa5iaofVozS/uQJEl3JRWLKKGJKh6Yaiv0GLGSuhpFJe7P3SbHZ8/yjAHRQwKRoA6YZqlfjXWmVzoVSMw==
