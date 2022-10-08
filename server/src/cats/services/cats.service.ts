@@ -24,7 +24,7 @@ export class CatsService {
     if (queryArgs && Array.isArray(queryArgs.orderBy)) {
       const sort = [];
       queryArgs.orderBy.forEach(sorter => sort.push([sorter.field, sorter.direction]));
-      modelFind = modelFind.sort(sort);
+      modelFind = modelFind.sort(sort as any);
     }
     return await modelFind.exec();
   }

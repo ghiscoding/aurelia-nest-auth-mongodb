@@ -34,7 +34,7 @@ export class UsersService {
     if (Array.isArray(orderBy)) {
       const sort = [];
       orderBy.forEach(sorter => sort.push([sorter.field, sorter.direction])); // [['name', 'asc']]
-      schema = schema.sort(sort);
+      schema = schema.sort(sort as any);
     }
     const query = schema.toConstructor();
     const totalCount = await schema.countDocuments().exec();
