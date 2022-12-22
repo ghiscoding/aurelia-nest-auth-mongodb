@@ -38,7 +38,7 @@
     "dotenv": "^16.0.0",
     "graphql": "^16.4.0",
     "graphql-tools": "^8.2.8",
-    "jsonwebtoken": "^8.5.1",
+    "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.4.6",
     "nest-access-control": "^2.2.0",
     "oauth": "^0.9.15",
