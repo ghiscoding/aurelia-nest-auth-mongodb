@@ -5,14 +5,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const project = require('./aurelia_project/aurelia.json');
 const { AureliaPlugin, ModuleDependenciesPlugin } = require('aurelia-webpack-plugin');
 const { ProvidePlugin } = require('webpack');
-const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
-const ForkTsCheckerWebpackPlugin = require('fork-ts-checker-webpack-plugin');
-
-// config helpers:
-const ensureArray = (config) => config && (Array.isArray(config) ? config : [config]) || [];
-const when = (condition, config, negativeConfig) =>
-  condition ? ensureArray(config) : ensureArray(negativeConfig);
 
 // primary config:
 const title = 'Aurelia Navigation Skeleton';
@@ -22,7 +15,7 @@ const nodeModulesDir = path.resolve(__dirname, 'node_modules');
 const srcDir = path.resolve(__dirname, 'src');
 const baseUrl = '';
 
-module.exports = ({ production } = {}, { analyze, server, tests } = {}) => ({
+module.exports = ({ production } = {}, { server } = {}) => ({
   resolve: {
     extensions: ['.ts', '.js'],
     modules: [srcDir, 'node_modules'],
@@ -74,12 +67,7 @@ module.exports = ({ production } = {}, { analyze, server, tests } = {}) => ({
   devtool: production ? false : 'eval-cheap-module-source-map',
   module: {
     rules: [
-      // CSS required in JS/TS files should use the style-loader that auto-injects it into the website
-      // only when the issuer is a .js/.ts file, so the loaders are not applied inside html templates
-      {
-        test: /\.css$/i,
-        use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader']
-      },
+      { test: /\.css$/i, use: [{ loader: MiniCssExtractPlugin.loader }, 'css-loader'] },
       { test: /\.(sass|scss)$/, use: ['style-loader', 'css-loader', 'sass-loader'], issuer: /\.[tj]s$/i },
       { test: /\.(sass|scss)$/, use: ['css-loader', 'sass-loader'], issuer: /\.html?$/i },
       { test: /\.html$/i, loader: 'html-loader' },
@@ -123,9 +111,8 @@ module.exports = ({ production } = {}, { analyze, server, tests } = {}) => ({
         { from: 'assets', to: 'assets' }
       ]
     }),
-    ...when(analyze, new BundleAnalyzerPlugin()),
+
     // Note that the usage of following plugin cleans the webpack output directory before build.
     new CleanWebpackPlugin(),
-    new ForkTsCheckerWebpackPlugin()
   ]
 });
