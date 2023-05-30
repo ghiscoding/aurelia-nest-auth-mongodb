@@ -6,8 +6,6 @@ import 'sweetalert2/dist/sweetalert2.min.css';
 import 'bootstrap-social/bootstrap-social.css';
 import 'font-awesome/css/font-awesome.css';
 import 'flatpickr/dist/flatpickr.min.css';
-import 'multiple-select-modified/src/multiple-select.css';
-import 'multiple-select-modified/src/multiple-select.js';
 import { Aurelia } from 'aurelia-framework';
 import { PLATFORM } from 'aurelia-pal';
 import { GridOption } from 'aurelia-slickgrid';
