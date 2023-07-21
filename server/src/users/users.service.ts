@@ -38,7 +38,7 @@ export class UsersService {
     }
     const query = schema.toConstructor();
     const totalCount = await schema.countDocuments().exec();
-    let nodes = await new query().skip(offset).limit(first + 1).exec(); // add +1 to check if we have next page
+    let nodes: any = await new query().skip(offset).limit(first + 1).exec() || []; // add +1 to check if we have next page
 
     // let nodes = await query().limit(first + 1).exec(); // with cursor
     const hasNextPage = nodes.length > first;
