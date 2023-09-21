@@ -36,7 +36,7 @@
     "class-transformer": "^0.5.1",
     "class-validator": "^0.14.0",
     "dotenv": "^16.0.0",
-    "graphql": "^16.4.0",
+    "graphql": "^16.8.1",
     "graphql-tools": "^8.2.8",
     "jsonwebtoken": "^9.0.0",
     "mongoose": "^6.11.3",
