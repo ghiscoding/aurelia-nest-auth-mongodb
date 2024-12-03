@@ -39,7 +39,7 @@
     "graphql": "^16.8.1",
     "graphql-tools": "^8.2.8",
     "jsonwebtoken": "^9.0.0",
-    "mongoose": "^6.11.3",
+    "mongoose": "^8.8.3",
     "nest-access-control": "^2.2.0",
     "oauth": "^0.9.15",
     "passport": "^0.6.0",
